@@ -1,310 +1,859 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DaishiMusic</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaishiMusic | Orchestra · Arrangement Production & Scores</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'studio-bg': '#F6F3EC',           /* Soft warm parchment / linen */
+                        'studio-card': '#FFFFFF',         /* Ivory card surface */
+                        'studio-card-border': '#E4DCD0',  /* Subtle analog boundary */
+                        'studio-surface': '#EDE7DC',      /* Warm console panel */
+                        'studio-gold': '#C59A58',         /* Muted vintage brass / varnish */
+                        'studio-gold-light': '#F1E5D1',   /* Soft cream amber */
+                        'studio-lavender': '#857896',     /* Muted arcade pastel violet */
+                        'studio-sage': '#638C7D',         /* Vintage arcade phosphor / sage mint */
+                        'studio-peach': '#C67D73',        /* Desaturated arcade coral */
+                        'studio-text': '#2E2A25',         /* Deep warm charcoal */
+                        'studio-muted': '#7A7368',        /* Muted graphite */
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Space Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'soft-tactile': '0 4px 18px -2px rgba(99, 84, 61, 0.08), 0 1px 3px rgba(99, 84, 61, 0.05)',
+                        'arcade-button': '0 3px 0px 0px #D5C9B7',
+                        'arcade-glow': '0 8px 24px -4px rgba(197, 154, 88, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        html {
-            scroll-behavior: smooth;
+        body {
+            background-color: #F6F3EC;
+            color: #2E2A25;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
         }
 
-        section {
-            scroll-margin-top: 80px;
+        .font-serif-title {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Subtle analog graph background */
+        .bg-studio-grid {
+            background-image: 
+                linear-gradient(to right, rgba(140, 126, 107, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(140, 126, 107, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Soft analog glass card */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.84);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(228, 220, 208, 0.95);
+        }
+
+        /* Subtle retro scanline texture */
+        .arcade-scanline {
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%, 
+                rgba(0, 0, 0, 0.02) 50%
+            );
+            background-size: 100% 4px;
+        }
+
+        /* Custom tactile scrollbar */
+        ::-webkit-scrollbar {
+            width: 9px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1ECE3;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D2C6B5;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C59A58;
         }
     </style>
 </head>
-<body class="bg-white text-gray-900 overflow-x-hidden">
+<body class="relative antialiased selection:bg-studio-gold-light selection:text-studio-text arcade-scanline">
 
-    <!-- NAV -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-white/60">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#home" class="text-lg sm:text-xl font-bold tracking-wide text-slate-900 hover:text-indigo-600 transition">
-                DaishiMusic
-            </a>
+    <!-- Ambient soft warmth blurs -->
+    <div class="fixed top-0 left-1/4 w-[480px] h-[480px] bg-studio-gold/10 rounded-full blur-[130px] pointer-events-none"></div>
+    <div class="fixed bottom-10 right-10 w-[500px] h-[500px] bg-studio-lavender/10 rounded-full blur-[150px] pointer-events-none"></div>
+    <div class="fixed top-1/2 right-1/3 w-[420px] h-[420px] bg-studio-sage/10 rounded-full blur-[130px] pointer-events-none"></div>
 
-            <ul class="flex items-center space-x-6 sm:space-x-8 text-sm font-medium text-slate-700">
-                <li><a href="#home" class="hover:text-indigo-600 transition">Home</a></li>
-                <li><a href="#services" class="hover:text-indigo-600 transition">Services</a></li>
-                <li><a href="#portfolio" class="hover:text-indigo-600 transition">Portfolio</a></li>
-                <li><a href="#contact" class="hover:text-indigo-600 transition">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- HERO (Now full-screen and edge-to-edge) -->
-    <section id="home" class="relative w-full h-screen min-h-[650px] flex items-center overflow-hidden">
-        <!-- Banner Image -->
-        <img
-            src="images/banner.png"
-            alt="Music visual banner"
-            class="absolute inset-0 h-full w-full object-cover object-center"
-        />
-
-        <!-- Overlay filters for readability -->
-        <div class="absolute inset-0 bg-white/10"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-white/70 via-white/30 to-transparent pointer-events-none"></div>
-
-        <!-- Content -->
-        <div class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 pt-16">
-            <div class="max-w-xl">
-                <h1 class="text-4xl sm:text-6xl font-black leading-tight text-black drop-shadow-sm">
-                    Meet Your New<br>
-                    Exclusive &<br>
-                    Signature Sound
-                </h1>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES (2 Blocks Only) -->
-    <section
-        id="services"
-        class="relative min-h-screen overflow-hidden bg-gradient-to-br from-sky-500 via-blue-500 to-indigo-600 flex flex-col items-center justify-center pt-20 pb-24"
-    >
-        <div class="absolute inset-0 bg-gradient-to-tr from-white/20 via-white/5 to-transparent pointer-events-none"></div>
-        <div class="absolute -top-24 left-0 h-80 w-80 rounded-full bg-white/10 blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-indigo-300/20 blur-3xl pointer-events-none"></div>
-
-        <!-- Section title -->
-        <div class="relative z-10 text-center mb-12 px-6">
-            <h2 class="text-4xl font-semibold text-white drop-shadow-md mb-4">SERVICES</h2>
-            <p class="text-white/90 max-w-xl mx-auto">
-                Custom music production, composition, sound design, and audio for media.
-            </p>
-        </div>
-
-        <!-- Blocks: 2 Columns -->
-        <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl px-6">
-            <!-- Block 1: Video Game Soundtrack -->
-            <div class="bg-white/95 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-white/60 text-center hover:scale-105 transition flex flex-col justify-between">
-                <h3 class="text-xl font-bold mb-4 uppercase text-slate-900">Video Game Soundtrack</h3>
-                <img src="images/retro_modern.png" alt="Video Game Soundtrack" class="mx-auto mb-4 h-32 object-cover rounded-xl">
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Custom compositions across versatile game genres, including pop, funk, electronic, and hybrid orchestral tracks.
-                </p>
-            </div>
-
-            <!-- Block 2: Custom Arrangement -->
-            <div class="bg-white/95 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-white/60 text-center hover:scale-105 transition flex flex-col justify-between">
-                <h3 class="text-xl font-bold mb-4 uppercase text-slate-900">Custom Arrangement</h3>
-                <img src="images/arrangement.png" alt="Custom Arrangement" class="mx-auto mb-4 h-32 object-cover rounded-xl">
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Tailor-made musical structures and orchestrations designed specifically around your project's unique goals.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO -->
-    <section
-        id="portfolio"
-        class="relative min-h-screen overflow-hidden py-24 bg-gradient-to-br from-[#b4b9fe] via-blue-200 to-white"
-    >
-        <div class="absolute inset-0 bg-gradient-to-tr from-white/40 via-white/15 to-transparent pointer-events-none"></div>
-
-        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-semibold mb-12 text-slate-900">
-                PORTFOLIO
-            </h2>
-
-            <!-- STYLE TABS (2 tabs only) -->
-            <div class="flex flex-wrap justify-center gap-3 mb-10">
-                <button onclick="switchTrack('videogame', this)" class="tab-btn active">Video Game Soundtrack</button>
-                <button onclick="switchTrack('custom', this)" class="tab-btn">Custom Arrangement</button>
-            </div>
-
-            <!-- PLAYER CARD -->
-            <div class="bg-white/75 backdrop-blur-md border border-white/70 shadow-xl rounded-2xl p-6">
-                <iframe
-                    id="sc-player"
-                    width="100%"
-                    height="450"
-                    scrolling="no"
-                    frameborder="no"
-                    allow="autoplay">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section
-        id="contact"
-        class="relative min-h-screen overflow-hidden py-24 bg-gradient-to-br from-white via-[#f6f7ff] to-[#e8ebff]"
-    >
-        <div class="absolute inset-0 bg-gradient-to-tr from-white/60 via-white/20 to-transparent pointer-events-none"></div>
-        <div class="absolute -top-24 left-0 h-80 w-80 rounded-full bg-[#b4b9fe]/30 blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-sky-200/35 blur-3xl pointer-events-none"></div>
-
-        <div class="relative z-10 max-w-2xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-semibold mb-6 text-slate-900">CONTACT</h2>
-            <p class="mb-10 text-slate-600">
-                Ready to start your next project? Let's talk about your sound.
-            </p>
-
-            <div class="bg-white/75 backdrop-blur-md border border-white/70 shadow-xl rounded-3xl p-8 sm:p-10">
-                <div class="space-y-4 text-left">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <input
-                            type="text"
-                            placeholder="Your Name"
-                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/90 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#b4b9fe]"
-                        />
-                        <input
-                            type="email"
-                            placeholder="Email Address"
-                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/90 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#b4b9fe]"
-                        />
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-studio-bg/90 border-b border-studio-card-border transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <div class="w-10 h-10 rounded-xl bg-studio-surface border border-studio-card-border p-[1px] shadow-sm flex items-center justify-center text-studio-gold">
+                        <i class="fa-solid fa-wave-square text-base"></i>
                     </div>
-
-                    <textarea
-                        rows="5"
-                        placeholder="Tell me about your project..."
-                        class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/90 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#b4b9fe]"
-                    ></textarea>
-
-                    <div class="text-center pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a href="mailto:hello@example.com" class="contact-btn">
-                            GET IN TOUCH
-                        </a>
-                        <a href="https://www.fiverr.com/s/5rX0NAz" target="_blank" rel="noopener noreferrer" class="contact-btn fiverr-btn">
-                            <img src="images/icons8-fiverr.svg" alt="Fiverr" class="inline-block w-7 h-7 mr-2 -mt-1">
-                            HIRE ON FIVERR
-                        </a>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span class="font-serif-title text-2xl font-bold tracking-wide text-studio-text">DaishiMusic</span>
+                            <span class="font-mono text-[9px] px-1.5 py-0.5 bg-studio-surface rounded text-studio-muted border border-studio-card-border">40</span>
+                        </div>
+                        <span class="block font-mono text-[9px] tracking-[0.22em] uppercase text-studio-lavender font-bold">Orchestra · Arrangement</span>
                     </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider text-studio-muted">
+                    <a href="#services" class="hover:text-studio-sage transition-colors">Services</a>
+                    <a href="#showcase" class="hover:text-studio-gold transition-colors">Featured Works</a>
+                    <a href="#genres" class="hover:text-studio-lavender transition-colors">Sonic Spectrum</a>
+                    <a href="#testimonials" class="hover:text-studio-text transition-colors">Reviews</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#contact" class="px-5 py-2.5 rounded-xl bg-studio-surface hover:bg-studio-card border border-studio-card-border text-studio-text text-xs font-mono font-bold tracking-wider uppercase transition-all shadow-arcade-button hover:translate-y-0.5">
+                        <i class="fa-solid fa-paper-plane text-studio-gold mr-1.5"></i> Send a Request
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-studio-muted hover:text-studio-text focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
                 </div>
             </div>
         </div>
+
+        <!-- Mobile menu dropdown -->
+        <div class="hidden md:hidden bg-studio-card border-b border-studio-card-border px-6 pt-4 pb-8 space-y-4 font-mono text-xs uppercase" id="mobile-menu">
+            <a href="#services" class="block py-2 text-studio-text font-medium hover:text-studio-sage">Services</a>
+            <a href="#showcase" class="block py-2 text-studio-text font-medium hover:text-studio-gold">Featured Works</a>
+            <a href="#genres" class="block py-2 text-studio-text font-medium hover:text-studio-lavender">Sonic Spectrum</a>
+            <a href="#testimonials" class="block py-2 text-studio-text font-medium hover:text-studio-text">Reviews</a>
+            <a href="#contact" class="block text-center py-2.5 rounded-xl bg-studio-surface border border-studio-card-border text-studio-text font-bold">Send a Request</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-studio-grid">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Content -->
+                <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-studio-surface border border-studio-card-border shadow-sm">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-studio-gold opacity-60"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-studio-gold"></span>
+                        </span>
+                        <span class="font-mono text-[10px] font-bold tracking-widest uppercase text-studio-muted">
+                            Orchestration <span class="text-studio-gold font-normal">×</span> Contemporary Production
+                        </span>
+                    </div>
+
+                    <h1 class="font-serif-title text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.12] text-studio-text">
+                        Meet Your New Exclusive & <br class="hidden sm:inline" />
+                        <span class="italic font-normal text-studio-gold">Signature</span> 
+                        <span class="underline decoration-studio-lavender/40 decoration-wavy decoration-2">Sound.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-studio-muted leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                        We compose immersive orchestral and contemporary scores that blur the line between fiction and reality. By merging analog with digital and organic with electronic, we invite you into a bottomless well of sound.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-1 font-mono text-xs">
+                        <a href="#showcase" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-studio-gold text-white font-bold tracking-wider uppercase hover:bg-studio-gold/90 transition-all shadow-arcade-button hover:translate-y-0.5 text-center flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-play text-[10px]"></i>
+                            <span>Play Demo</span>
+                        </a>
+                        <a href="#services" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-studio-card hover:bg-studio-surface text-studio-text border border-studio-card-border font-bold tracking-wider uppercase transition-all shadow-arcade-button hover:translate-y-0.5 text-center">
+                            Explore Services
+                        </a>
+                    </div>
+
+                    <!-- Quick Metrics / Console HUD -->
+                    <div class="pt-6 border-t border-studio-card-border/80 grid grid-cols-3 gap-6 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <span class="font-serif-title text-3xl font-bold text-studio-gold">High-quality</span>
+                            <p class="font-mono text-[10px] text-studio-muted mt-1 uppercase tracking-wider">Instruments</p>
+                        </div>
+                        <div>
+                            <span class="font-serif-title text-3xl font-bold text-studio-lavender">Custom</span>
+                            <p class="font-mono text-[10px] text-studio-muted mt-1 uppercase tracking-wider">Scoring & Arranging</p>
+                        </div>
+                        <div>
+                            <span class="font-serif-title text-3xl font-bold text-studio-sage">100%</span>
+                            <p class="font-mono text-[10px] text-studio-muted mt-1 uppercase tracking-wider">No AI Used</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Visual: Simplified Bodiless Violin Line Art -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="group relative w-full max-w-md aspect-square rounded-3xl glass-panel p-8 flex items-center justify-center shadow-soft-tactile border border-studio-card-border cursor-pointer">
+                        
+                        <!-- Soft Ambient Halos -->
+                        <div class="absolute w-56 h-56 rounded-full bg-studio-gold/15 blur-3xl -top-6 -left-6 pointer-events-none"></div>
+                        <div class="absolute w-56 h-56 rounded-full bg-studio-lavender/15 blur-3xl -bottom-6 -right-6 pointer-events-none"></div>
+
+                        <!-- Minimalist Bodiless Violin Line Art (Delicate contours with subtle hover zoom) -->
+                        <svg class="w-full h-full max-h-[380px] drop-shadow-sm transition-transform duration-500 ease-out group-hover:scale-105" viewBox="0 0 340 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            
+                            <!-- Pure Contour Hairline Bout Guides (No body fill) -->
+                            <!-- Upper & Lower Bouts (Left curve) -->
+                            <path d="M 140 160 C 95 180 85 220 110 250 C 90 280 80 330 115 390 C 140 435 170 445 170 445" 
+                                  stroke="#C59A58" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 0" opacity="0.85"/>
+                            
+                            <!-- Upper & Lower Bouts (Right curve) -->
+                            <path d="M 200 160 C 245 180 255 220 230 250 C 250 280 260 330 225 390 C 200 435 170 445 170 445" 
+                                  stroke="#857896" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 0" opacity="0.85"/>
+
+                            <!-- Minimal Center Bout Accents (C-bouts corner notches) -->
+                            <path d="M 110 248 C 120 255 120 265 110 272" stroke="#638C7D" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M 230 248 C 220 255 220 265 230 272" stroke="#638C7D" stroke-width="1.5" stroke-linecap="round"/>
+
+                            <!-- Stylized Floating F-Holes (Wireframe) -->
+                            <path d="M 140 280 C 135 305 148 325 142 350" stroke="#C59A58" stroke-width="1.7" stroke-linecap="round"/>
+                            <circle cx="140" cy="280" r="2.5" fill="#C59A58"/>
+                            <circle cx="142" cy="350" r="2.5" fill="#C59A58"/>
+
+                            <path d="M 200 280 C 205 305 192 325 198 350" stroke="#857896" stroke-width="1.7" stroke-linecap="round"/>
+                            <circle cx="200" cy="280" r="2.5" fill="#857896"/>
+                            <circle cx="198" cy="350" r="2.5" fill="#857896"/>
+
+                            <!-- Minimalist Floating Bridge -->
+                            <path d="M 150 330 Q 170 326 190 330" stroke="#2E2A25" stroke-width="2.2" stroke-linecap="round"/>
+                            <line x1="154" y1="331" x2="154" y2="337" stroke="#2E2A25" stroke-width="1.5"/>
+                            <line x1="186" y1="331" x2="186" y2="337" stroke="#2E2A25" stroke-width="1.5"/>
+
+                            <!-- Neck & Fingerboard Lines (Linear wireframe) -->
+                            <line x1="164" y1="75" x2="164" y2="275" stroke="#7A7368" stroke-width="1.2" opacity="0.7"/>
+                            <line x1="176" y1="75" x2="176" y2="275" stroke="#7A7368" stroke-width="1.2" opacity="0.7"/>
+                            <line x1="162" y1="275" x2="178" y2="275" stroke="#7A7368" stroke-width="1.2" opacity="0.7"/>
+
+                            <!-- Minimal Tailpiece -->
+                            <path d="M 166 385 L 174 385 L 172 440 L 168 440 Z" stroke="#C59A58" stroke-width="1.2" fill="none"/>
+
+                            <!-- Pegbox & Scroll Outline -->
+                            <path d="M 164 75 L 164 35 C 164 25 176 25 176 35 L 176 75" stroke="#2E2A25" stroke-width="1.4" stroke-linecap="round"/>
+                            <path d="M 164 35 C 160 30 162 18 170 18 C 178 18 180 30 176 35" stroke="#C59A58" stroke-width="1.4"/>
+                            
+                            <!-- Tuning Peg Wireframe Pins -->
+                            <line x1="152" y1="42" x2="164" y2="42" stroke="#638C7D" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="150" cy="42" r="2" fill="#638C7D"/>
+                            
+                            <line x1="176" y1="48" x2="188" y2="48" stroke="#C67D73" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="190" cy="48" r="2" fill="#C67D73"/>
+
+                            <line x1="152" y1="56" x2="164" y2="56" stroke="#857896" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="150" cy="56" r="2" fill="#857896"/>
+
+                            <line x1="176" y1="64" x2="188" y2="64" stroke="#C59A58" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="190" cy="64" r="2" fill="#C59A58"/>
+
+                            <!-- Four High-Precision Violin Strings (Full length) -->
+                            <line x1="166" y1="42" x2="167" y2="385" stroke="#C59A58" stroke-width="1.2"/>
+                            <line x1="169" y1="48" x2="169" y2="385" stroke="#A88147" stroke-width="1.2"/>
+                            <line x1="171" y1="56" x2="171" y2="385" stroke="#857896" stroke-width="1.2"/>
+                            <line x1="174" y1="64" x2="173" y2="385" stroke="#638C7D" stroke-width="1.2"/>
+                        </svg>
+
+                        <!-- Soft Badge Overlay -->
+                        <div class="absolute bottom-5 left-6 glass-panel px-3.5 py-1.5 rounded-xl flex items-center space-x-2 border border-studio-card-border shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-studio-gold"></span>
+                            <span class="font-mono text-[9px] uppercase font-bold tracking-wider text-studio-muted">Pure Line Acoustic</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
+    <!-- SECTION 2: OUR SERVICES & CRAFTS -->
+    <section id="services" class="py-24 bg-studio-surface/60 border-y border-studio-card-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="font-mono text-studio-sage text-xs font-bold tracking-[0.2em] uppercase">[ PRODUCTION DESK ]</span>
+                <h2 class="font-serif-title text-4xl sm:text-5xl font-bold text-studio-text mt-1">Our Services & Crafts</h2>
+                <p class="text-studio-muted text-sm sm:text-base mt-2">
+                    Meticulous scoring, bespoke instrumentation, and tailored sonic architecture crafted for stage, screen, and interactive worlds.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Service 1: Orchestration -->
+                <div class="bg-studio-card rounded-2xl p-7 border border-studio-card-border hover:border-studio-gold/60 transition-all duration-300 shadow-soft-tactile">
+                    <div class="w-11 h-11 rounded-xl bg-studio-gold-light/70 text-studio-gold flex items-center justify-center text-lg mb-5 border border-studio-gold/20">
+                        <i class="fa-solid fa-scroll"></i>
+                    </div>
+                    <h3 class="font-serif-title text-2xl font-bold text-studio-text mb-2">Orchestration</h3>
+                    <p class="text-xs text-studio-muted leading-relaxed mb-4">
+                        Full symphonic expansion, organic brass and string voicing, concert-grade score delivery, and hybrid acoustic arrangements.
+                    </p>
+                    <a href="#contact" class="font-mono text-xs font-bold text-studio-gold hover:underline">Commission <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Service 2: Custom Arrangement -->
+                <div class="bg-studio-card rounded-2xl p-7 border border-studio-card-border hover:border-studio-sage/60 transition-all duration-300 shadow-soft-tactile">
+                    <div class="w-11 h-11 rounded-xl bg-studio-sage/15 text-studio-sage flex items-center justify-center text-lg mb-5 border border-studio-sage/20">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h3 class="font-serif-title text-2xl font-bold text-studio-text mb-2">Custom Arrangement</h3>
+                    <p class="text-xs text-studio-muted leading-relaxed mb-4">
+                        Re-imagining tracks across pop, funk, and acoustic genres with bespoke vocal harmonies, rhythm sections, and live strings.
+                    </p>
+                    <a href="#contact" class="font-mono text-xs font-bold text-studio-sage hover:underline">Arrange Track <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Service 3: Video Game Soundtracks -->
+                <div class="bg-studio-card rounded-2xl p-7 border border-studio-card-border hover:border-studio-lavender/60 transition-all duration-300 shadow-soft-tactile">
+                    <div class="w-11 h-11 rounded-xl bg-studio-lavender/15 text-studio-lavender flex items-center justify-center text-lg mb-5 border border-studio-lavender/20">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <h3 class="font-serif-title text-2xl font-bold text-studio-text mb-2">Video Game Soundtracks</h3>
+                    <p class="text-xs text-studio-muted leading-relaxed mb-4">
+                        Dynamic loopable cues, interactive adaptive leitmotifs, ambient soundscapes, and character-driven gaming themes.
+                    </p>
+                    <a href="#contact" class="font-mono text-xs font-bold text-studio-lavender hover:underline">Scoring Inquiries <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Service 4: Score Transcription -->
+                <div class="bg-studio-card rounded-2xl p-7 border border-studio-card-border hover:border-studio-peach/60 transition-all duration-300 shadow-soft-tactile">
+                    <div class="w-11 h-11 rounded-xl bg-studio-peach/15 text-studio-peach flex items-center justify-center text-lg mb-5 border border-studio-peach/20">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                    </div>
+                    <h3 class="font-serif-title text-2xl font-bold text-studio-text mb-2">Score Transcription</h3>
+                    <p class="text-xs text-studio-muted leading-relaxed mb-4">
+                        Pristine engraving from audio stems, sheet music preparation, MIDI extraction, and performance-ready conductor parts.
+                    </p>
+                    <a href="#contact" class="font-mono text-xs font-bold text-studio-peach hover:underline">Send Audio Stems <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FEATURED WORKS (Higher Position) -->
+    <section id="showcase" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+            <div>
+                <span class="font-mono text-studio-gold text-xs font-bold tracking-[0.2em] uppercase">Tape Archives</span>
+                <h2 class="font-serif-title text-4xl sm:text-5xl font-bold text-studio-text mt-1">Featured Works</h2>
+            </div>
+            
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap gap-2 mt-6 md:mt-0 font-mono text-xs" id="genre-filters">
+                <button onclick="filterGenre('all')" class="genre-btn active px-4 py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-gold text-white shadow-arcade-button">
+                    All
+                </button>
+                <button onclick="filterGenre('orchestral')" class="genre-btn px-4 py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-card text-studio-muted hover:text-studio-text border border-studio-card-border shadow-sm">
+                    Orchestral
+                </button>
+                <button onclick="filterGenre('game')" class="genre-btn px-4 py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-card text-studio-muted hover:text-studio-text border border-studio-card-border shadow-sm">
+                    Game Soundtrack
+                </button>
+                <button onclick="filterGenre('arrangement')" class="genre-btn px-4 py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-card text-studio-muted hover:text-studio-text border border-studio-card-border shadow-sm">
+                    Arrangement
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="track-grid">
+            
+            <!-- Track 1: Orchestral -->
+            <div class="track-card orchestral bg-studio-card rounded-2xl p-6 border border-studio-card-border hover:border-studio-gold/60 transition-all duration-300 shadow-soft-tactile group">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-[10px] font-mono px-2.5 py-1 rounded-md bg-studio-gold-light/60 text-studio-gold border border-studio-gold/20 uppercase font-bold">
+                        Orchestral
+                    </span>
+                    <span class="text-xs text-studio-muted font-mono"><i class="fa-regular fa-clock mr-1"></i> 03:42</span>
+                </div>
+                
+                <h3 class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">Autumn Hall Overture</h3>
+                <p class="text-xs text-studio-muted mt-1 mb-6">Live chamber violin quartet recorded with ribbons, layered with soaring horn swells.</p>
+
+                <!-- Audio Console Player UI -->
+                <div class="bg-studio-surface/60 rounded-xl p-4 border border-studio-card-border space-y-3">
+                    <div class="flex items-center justify-between">
+                        <button onclick="toggleAudio(this)" class="w-10 h-10 rounded-xl bg-studio-gold text-white flex items-center justify-center hover:opacity-90 transition-all shadow-arcade-button">
+                            <i class="fa-solid fa-play text-xs"></i>
+                        </button>
+                        <div class="flex-1 mx-4">
+                            <div class="h-2 bg-studio-card border border-studio-card-border rounded-full overflow-hidden cursor-pointer" onclick="seekAudio(event)">
+                                <div class="h-full bg-studio-gold w-1/3 rounded-full"></div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-studio-gold font-mono font-bold">1:14</span>
+                    </div>
+
+                    <!-- Subtle VU Bars -->
+                    <div class="flex items-end justify-between space-x-1.5 h-6 pt-1 px-1">
+                        <span class="w-2 bg-studio-gold/60 h-3 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-gold h-5 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-gold/40 h-2 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-gold h-6 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-gold/70 h-4 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-gold h-5 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-gold/50 h-3 rounded-sm animate-pulse"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Track 2: Game Soundtrack -->
+            <div class="track-card game bg-studio-card rounded-2xl p-6 border border-studio-card-border hover:border-studio-lavender/60 transition-all duration-300 shadow-soft-tactile group">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-[10px] font-mono px-2.5 py-1 rounded-md bg-studio-lavender/15 text-studio-lavender border border-studio-lavender/30 uppercase font-bold">
+                        Game Soundtrack
+                    </span>
+                    <span class="text-xs text-studio-muted font-mono"><i class="fa-regular fa-clock mr-1"></i> 03:15</span>
+                </div>
+                
+                <h3 class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-lavender transition-colors">Starlight Solstice</h3>
+                <p class="text-xs text-studio-muted mt-1 mb-6">Interactive theme blending nostalgic 16-bit arpeggios, analog pads, and solo cello.</p>
+
+                <!-- Audio Player UI -->
+                <div class="bg-studio-surface/60 rounded-xl p-4 border border-studio-card-border space-y-3">
+                    <div class="flex items-center justify-between">
+                        <button onclick="toggleAudio(this)" class="w-10 h-10 rounded-xl bg-studio-lavender text-white flex items-center justify-center hover:opacity-90 transition-all shadow-arcade-button">
+                            <i class="fa-solid fa-play text-xs"></i>
+                        </button>
+                        <div class="flex-1 mx-4">
+                            <div class="h-2 bg-studio-card border border-studio-card-border rounded-full overflow-hidden cursor-pointer" onclick="seekAudio(event)">
+                                <div class="h-full bg-studio-lavender w-1/2 rounded-full"></div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-studio-lavender font-mono font-bold">1:35</span>
+                    </div>
+
+                    <!-- VU Bars -->
+                    <div class="flex items-end justify-between space-x-1.5 h-6 pt-1 px-1">
+                        <span class="w-2 bg-studio-lavender h-4 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-peach h-6 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-lavender/60 h-3 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-peach/80 h-5 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-lavender h-6 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-peach h-4 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-lavender/70 h-5 rounded-sm animate-pulse"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Track 3: Arrangement -->
+            <div class="track-card arrangement bg-studio-card rounded-2xl p-6 border border-studio-card-border hover:border-studio-sage/60 transition-all duration-300 shadow-soft-tactile group">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-[10px] font-mono px-2.5 py-1 rounded-md bg-studio-sage/15 text-studio-sage border border-studio-sage/30 uppercase font-bold">
+                        Arrangement
+                    </span>
+                    <span class="text-xs text-studio-muted font-mono"><i class="fa-regular fa-clock mr-1"></i> 02:58</span>
+                </div>
+                
+                <h3 class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-sage transition-colors">Pastel Boulevard '84</h3>
+                <p class="text-xs text-studio-muted mt-1 mb-6">Funk-pop strings arrangement with Fender slap bass, clavinet stabs, and modern drums.</p>
+
+                <!-- Audio Player UI -->
+                <div class="bg-studio-surface/60 rounded-xl p-4 border border-studio-card-border space-y-3">
+                    <div class="flex items-center justify-between">
+                        <button onclick="toggleAudio(this)" class="w-10 h-10 rounded-xl bg-studio-sage text-white flex items-center justify-center hover:opacity-90 transition-all shadow-arcade-button">
+                            <i class="fa-solid fa-play text-xs"></i>
+                        </button>
+                        <div class="flex-1 mx-4">
+                            <div class="h-2 bg-studio-card border border-studio-card-border rounded-full overflow-hidden cursor-pointer" onclick="seekAudio(event)">
+                                <div class="h-full bg-studio-sage w-2/3 rounded-full"></div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-studio-sage font-mono font-bold">1:58</span>
+                    </div>
+
+                    <!-- VU Bars -->
+                    <div class="flex items-end justify-between space-x-1.5 h-6 pt-1 px-1">
+                        <span class="w-2 bg-studio-sage h-5 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-sage/50 h-2 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-sage h-6 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-sage/70 h-4 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-sage h-5 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-sage/40 h-3 rounded-sm animate-pulse"></span>
+                        <span class="w-2 bg-studio-sage h-6 rounded-sm animate-pulse"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: THE ACOUSTIC & CONTEMPORARY SPECTRUM (With Animated Moving Blurred Spectrum Waves in Background) -->
+    <section id="genres" class="py-24 border-y border-studio-card-border relative overflow-hidden bg-studio-surface/40">
+        
+        <!-- Aesthetic Ambient Moving Spectrum Waves (Non-functional, gentle continuous background motion) -->
+        <canvas id="ambientWaveCanvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-45 blur-[3px]"></canvas>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="font-mono text-studio-lavender text-xs font-bold tracking-[0.2em] uppercase">[ CARTRIDGE SLOTS ]</span>
+                <h2 class="font-serif-title text-4xl sm:text-5xl font-bold text-studio-text mt-1.5">The Acoustic & Contemporary Spectrum</h2>
+                <p class="text-studio-muted text-sm sm:text-base mt-2">
+                    Acoustic intimacy meets 70s funk slap, warm cassette saturation, and modern pop sounds.
+                </p>
+            </div>
+
+            <!-- 3 Slots Layout (Translucent cards letting the spectrum waves breathe through) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Slot 1: Orchestral -->
+                <div class="bg-studio-card/85 backdrop-blur-md rounded-2xl p-7 border border-studio-card-border hover:border-studio-gold transition-all duration-300 relative group shadow-soft-tactile">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-[10px] uppercase font-bold tracking-wider text-studio-gold bg-studio-gold-light/60 px-2.5 py-0.5 rounded-md border border-studio-gold/20">Slot 01</span>
+                        <i class="fa-solid fa-scroll text-studio-gold text-xs"></i>
+                    </div>
+                    <h3 class="font-serif-title text-3xl font-bold text-studio-text mt-5 mb-2">Orchestral</h3>
+                    <p class="text-xs text-studio-muted leading-relaxed mb-6">
+                        Chamber polyphony, rich acoustic string bowings, soaring brass themes, and cinematic emotional depth recorded with acoustic purity.
+                    </p>
+                    <div class="flex items-center text-xs font-mono font-semibold text-studio-gold border-t border-studio-card-border pt-4">
+                        <span>Strings, Brass & Woodwinds</span>
+                    </div>
+                </div>
+
+                <!-- Slot 2: Modern Pop -->
+                <div class="bg-studio-card/85 backdrop-blur-md rounded-2xl p-7 border border-studio-card-border hover:border-studio-peach transition-all duration-300 relative group shadow-soft-tactile">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-[10px] uppercase font-bold tracking-wider text-studio-peach bg-studio-peach/10 px-2.5 py-0.5 rounded-md border border-studio-peach/20">Slot 02</span>
+                        <i class="fa-solid fa-compact-disc text-studio-peach text-xs"></i>
+                    </div>
+                    <h3 class="font-serif-title text-3xl font-bold text-studio-text mt-5 mb-2">Modern Pop</h3>
+                    <p class="text-xs text-studio-muted leading-relaxed mb-6">
+                        Polished radio-ready hooks, lush string ensemble stacks, analog synth beds, and driving modern rhythm production with crisp transients.
+                    </p>
+                    <div class="flex items-center text-xs font-mono font-semibold text-studio-peach border-t border-studio-card-border pt-4">
+                        <span>Anthemic Hooks & Melodic Stacks</span>
+                    </div>
+                </div>
+
+                <!-- Slot 3: Funk & Slap Bass -->
+                <div class="bg-studio-card/85 backdrop-blur-md rounded-2xl p-7 border border-studio-card-border hover:border-studio-sage transition-all duration-300 relative group shadow-soft-tactile">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-[10px] uppercase font-bold tracking-wider text-studio-sage bg-studio-sage/10 px-2.5 py-0.5 rounded-md border border-studio-sage/20">Slot 03</span>
+                        <i class="fa-solid fa-bolt text-studio-sage text-xs"></i>
+                    </div>
+                    <h3 class="font-serif-title text-3xl font-bold text-studio-text mt-5 mb-2">Funk & Slap Bass</h3>
+                    <p class="text-xs text-studio-muted leading-relaxed mb-6">
+                        Syncopated slap bass grooves, 70s Philadelphia string stabs, vintage Wurlitzer chords, and crisp transient punch designed for motion.
+                    </p>
+                    <div class="flex items-center text-xs font-mono font-semibold text-studio-sage border-t border-studio-card-border pt-4">
+                        <span>Slap Bass & Rhythmic Stabs</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: REVIEWS & CONTACT -->
+    <section id="testimonials" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Reviews -->
+            <div class="lg:col-span-5 space-y-7">
+                <div>
+                    <span class="font-mono text-studio-gold text-xs font-bold tracking-[0.2em] uppercase">Client Voices</span>
+                    <h2 class="font-serif-title text-4xl font-bold text-studio-text mt-1">Acclaim & Reviews</h2>
+                </div>
+
+                <div class="space-y-5">
+                    <div class="bg-studio-card p-6 rounded-2xl border border-studio-card-border shadow-soft-tactile">
+                        <div class="flex items-center space-x-1 text-studio-gold mb-3 text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm text-studio-muted italic leading-relaxed mb-4">
+                            "DaishiMusic delivered a custom string arrangement that gave our game soundtrack the grandeur of a classical recital, yet stayed fresh and punchy for contemporary gameplay."
+                        </p>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-9 h-9 rounded-xl bg-studio-lavender/15 text-studio-lavender font-mono font-bold flex items-center justify-center text-xs border border-studio-lavender/20">
+                                JR
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-studio-text">Julian Ramos</h4>
+                                <p class="text-[10px] text-studio-muted font-mono">Lead Producer, Sunfall Interactive</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-studio-card p-6 rounded-2xl border border-studio-card-border shadow-soft-tactile">
+                        <div class="flex items-center space-x-1 text-studio-gold mb-3 text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm text-studio-muted italic leading-relaxed mb-4">
+                            "Live acoustic violin tracked with pristine clarity and warmth. Their score transcription and arrangement work saved our live orchestra session days of rehearsal."
+                        </p>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-9 h-9 rounded-xl bg-studio-sage/15 text-studio-sage font-mono font-bold flex items-center justify-center text-xs border border-studio-sage/20">
+                                MT
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-studio-text">Mia Thorne</h4>
+                                <p class="text-[10px] text-studio-muted font-mono">Audio Director, Horizon Film</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking / Contact Form -->
+            <div id="contact" class="lg:col-span-7 bg-studio-card rounded-3xl p-8 sm:p-10 border border-studio-card-border shadow-soft-tactile relative">
+                <span class="font-mono text-studio-lavender text-xs font-bold tracking-[0.2em] uppercase">Get in Touch</span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-studio-text mt-1 mb-6">Send a Message</h2>
+
+                <form id="booking-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-mono text-[11px] font-bold uppercase text-studio-muted mb-1">Your Name</label>
+                            <input type="text" required placeholder="Alex Rivera" class="w-full px-4 py-3 rounded-xl bg-studio-bg border border-studio-card-border text-studio-text text-sm focus:outline-none focus:border-studio-gold transition-all">
+                        </div>
+                        <div>
+                            <label class="block font-mono text-[11px] font-bold uppercase text-studio-muted mb-1">Email Address</label>
+                            <input type="email" required placeholder="alex@recordlabel.com" class="w-full px-4 py-3 rounded-xl bg-studio-bg border border-studio-card-border text-studio-text text-sm focus:outline-none focus:border-studio-gold transition-all">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-mono text-[11px] font-bold uppercase text-studio-muted mb-1">Services</label>
+                            <select class="w-full px-4 py-3 rounded-xl bg-studio-bg border border-studio-card-border text-studio-text text-sm focus:outline-none focus:border-studio-gold transition-all">
+                                <option>Orchestration</option>
+                                <option>Custom Arrangement</option>
+                                <option>Video Game Soundtracks</option>
+                                <option>Score Transcription</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-mono text-[11px] font-bold uppercase text-studio-muted mb-1">Estimated Timeline</label>
+                            <select class="w-full px-4 py-3 rounded-xl bg-studio-bg border border-studio-card-border text-studio-text text-sm focus:outline-none focus:border-studio-gold transition-all">
+                                <option>Urgent (&lt; 2 weeks)</option>
+                                <option>Standard (1 month)</option>
+                                <option>Long term score</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-mono text-[11px] font-bold uppercase text-studio-muted mb-1">Project Details</label>
+                        <textarea rows="4" placeholder="Detail your track references, BPM, instrumentation, scope of arrangement, or soundtrack goals..." class="w-full px-4 py-3 rounded-xl bg-studio-bg border border-studio-card-border text-studio-text text-sm focus:outline-none focus:border-studio-gold transition-all"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-studio-text hover:bg-studio-text/90 text-studio-bg font-mono font-bold text-xs uppercase tracking-wider transition-all shadow-arcade-button flex items-center justify-center space-x-2">
+                        <span>Send A Request</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SUCCESS MODAL -->
+    <div id="message-modal" class="fixed inset-0 bg-stone-900/30 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-studio-card rounded-3xl p-8 max-w-sm w-full mx-4 border border-studio-card-border text-center space-y-4 shadow-xl">
+            <div class="w-12 h-12 rounded-xl bg-studio-gold-light text-studio-gold flex items-center justify-center mx-auto text-lg border border-studio-gold/30">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="font-serif-title text-2xl font-bold text-studio-text" id="modal-title">Request Dispatched</h3>
+            <p class="text-xs text-studio-muted" id="modal-message">Thank you for reaching out to DaishiMusic. We will review your project details and follow up within 24 hours.</p>
+            <button onclick="closeModal()" class="w-full py-2.5 rounded-xl bg-studio-gold text-white font-mono font-bold text-xs uppercase tracking-wider shadow-arcade-button">
+                Acknowledge
+            </button>
+        </div>
+    </div>
+
     <!-- FOOTER -->
-    <footer class="py-8 bg-white/80 backdrop-blur-md border-t border-white/60 text-slate-500 text-center text-xs">
-        &copy; <span id="year"></span> DaishiMusic. All Rights Reserved.
+    <footer class="bg-studio-surface border-t border-studio-card-border py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between space-y-5 sm:space-y-0">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-studio-card border border-studio-card-border flex items-center justify-center text-studio-gold font-bold text-xs">
+                    <i class="fa-solid fa-wave-square"></i>
+                </div>
+                <span class="font-serif-title text-xl font-bold text-studio-text">DaishiMusic</span>
+            </div>
+
+            <p class="text-xs text-studio-muted font-mono">
+                &copy; 2026 DaishiMusic. All rights reserved. Orchestral breadth & contemporary pop production.
+            </p>
+
+            <div class="flex space-x-5 text-studio-muted">
+                <a href="#" class="hover:text-studio-gold transition-colors"><i class="fa-brands fa-spotify text-base"></i></a>
+                <a href="#" class="hover:text-studio-lavender transition-colors"><i class="fa-brands fa-soundcloud text-base"></i></a>
+                <a href="#" class="hover:text-studio-sage transition-colors"><i class="fa-brands fa-apple text-base"></i></a>
+                <a href="#" class="hover:text-studio-peach transition-colors"><i class="fa-brands fa-youtube text-base"></i></a>
+            </div>
+        </div>
     </footer>
 
-    <!-- SCRIPT -->
+    <!-- SCRIPT LOGIC -->
     <script>
-        const tracks = {
-            videogame: encodeURIComponent("https://soundcloud.com/daishimusic/sets/retro-modern-music"),
-            custom: encodeURIComponent("https://soundcloud.com/daishimusic/sets/custom-arrangement")
-        };
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
 
-        const colors = {
-            videogame: "fd17e2",
-            custom: "fdddc1"
-        };
-
-        function loadPlaylist(style) {
-            const player = document.getElementById("sc-player");
-
-            player.src =
-                "https://w.soundcloud.com/player/?url=" +
-                tracks[style] +
-                "&color=%23" + colors[style] +
-                "&auto_play=false" +
-                "&hide_related=true" +
-                "&show_comments=false" +
-                "&show_user=false" +
-                "&show_reposts=false" +
-                "&show_playlist=true";
-        }
-
-        function switchTrack(style, el) {
-            loadPlaylist(style);
-            document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
-            if (el) el.classList.add("active");
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            loadPlaylist("videogame"); // Default load
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
         });
-        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Genre / Track Filter Functionality
+        function filterGenre(genre) {
+            const buttons = document.querySelectorAll('.genre-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-studio-gold', 'text-white', 'shadow-arcade-button');
+                btn.classList.add('bg-studio-card', 'text-studio-muted');
+            });
+            event.currentTarget.classList.add('bg-studio-gold', 'text-white', 'shadow-arcade-button');
+            event.currentTarget.classList.remove('bg-studio-card', 'text-studio-muted');
+
+            const tracks = document.querySelectorAll('.track-card');
+            tracks.forEach(track => {
+                if (genre === 'all' || track.classList.contains(genre)) {
+                    track.style.display = 'block';
+                } else {
+                    track.style.display = 'none';
+                }
+            });
+        }
+
+        // Simulated Audio Controls
+        function toggleAudio(btn) {
+            const icon = btn.querySelector('i');
+            const isPlaying = icon.classList.contains('fa-pause');
+
+            document.querySelectorAll('#showcase button i').forEach(i => {
+                i.classList.remove('fa-pause');
+                i.classList.add('fa-play');
+            });
+
+            if (!isPlaying) {
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+            } else {
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+            }
+        }
+
+        function seekAudio(event) {
+            const bar = event.currentTarget.firstElementChild;
+            const rect = event.currentTarget.getBoundingClientRect();
+            const clickPos = (event.clientX - rect.left) / rect.width;
+            bar.style.width = `${Math.min(Math.max(clickPos * 100, 5), 100)}%`;
+        }
+
+        // Form Submit Modal
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const modal = document.getElementById('message-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+            event.target.reset();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('message-modal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        // ==============================================================
+        // AMBIENT CONTINUOUS BACKGROUND SPECTRUM WAVES IN SECTION 4
+        // ==============================================================
+        const bgCanvas = document.getElementById('ambientWaveCanvas');
+        const bgCtx = bgCanvas.getContext('2d');
+        let bgWidth, bgHeight;
+
+        function resizeBgCanvas() {
+            bgWidth = bgCanvas.parentElement.clientWidth;
+            bgHeight = bgCanvas.parentElement.clientHeight;
+            bgCanvas.width = bgWidth;
+            bgCanvas.height = bgHeight;
+        }
+
+        window.addEventListener('resize', resizeBgCanvas);
+        resizeBgCanvas();
+
+        let waveTime = 0;
+        const waveLayers = [
+            { color: '#C59A58', freq: 0.008, speed: 0.012, amp: 45, yOffset: 0.45 }, // Gold Varnish
+            { color: '#857896', freq: 0.014, speed: -0.015, amp: 38, yOffset: 0.52 }, // Pastel Lavender
+            { color: '#638C7D', freq: 0.010, speed: 0.018, amp: 50, yOffset: 0.48 }, // Sage Phosphor
+            { color: '#C67D73', freq: 0.018, speed: -0.010, amp: 32, yOffset: 0.55 }  // Peach Chord
+        ];
+
+        function renderAmbientSpectrum() {
+            bgCtx.clearRect(0, 0, bgWidth, bgHeight);
+
+            waveLayers.forEach((wave, index) => {
+                bgCtx.beginPath();
+                bgCtx.lineWidth = 2.5;
+                bgCtx.strokeStyle = wave.color;
+
+                const baseCenterY = bgHeight * wave.yOffset;
+
+                for (let x = 0; x < bgWidth; x += 3) {
+                    const harmonic1 = Math.sin(x * wave.freq + waveTime * wave.speed);
+                    const harmonic2 = Math.cos(x * (wave.freq * 1.6) - waveTime * (wave.speed * 0.7));
+                    const envelope = Math.sin((x / bgWidth) * Math.PI); // Pinches at edges
+                    
+                    const y = baseCenterY + (harmonic1 * 0.7 + harmonic2 * 0.3) * wave.amp * envelope;
+
+                    if (x === 0) bgCtx.moveTo(x, y);
+                    else bgCtx.lineTo(x, y);
+                }
+                bgCtx.stroke();
+            });
+
+            waveTime += 1;
+            requestAnimationFrame(renderAmbientSpectrum);
+        }
+
+        window.onload = function() {
+            resizeBgCanvas();
+            renderAmbientSpectrum();
+        };
     </script>
 </body>
-
-<style>
-    .tab-btn {
-        padding: 0.5rem 1.25rem;
-        border-radius: 9999px;
-        background: rgba(255,255,255,0.7);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(255,255,255,0.6);
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: #334155;
-        transition: all 0.2s ease;
-        cursor: pointer;
-    }
-
-    .tab-btn:hover {
-        background: rgba(255,255,255,0.9);
-    }
-
-    .tab-btn.active {
-        background: rgba(255, 255, 255, 0.95);
-        color: #0f172a;
-        border: 1px solid rgba(255, 255, 255, 0.8);
-        box-shadow:
-            0 10px 25px rgba(0,0,0,0.08),
-            0 0 0 1px rgba(255,255,255,0.9) inset;
-    }
-
-    .contact-btn {
-        display: inline-block;
-        padding: 0.9rem 2.25rem;
-        border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(10px);
-        color: #0f172a;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        border: 1px solid rgba(255, 255, 255, 0.9);
-        box-shadow:
-            0 12px 30px rgba(0, 0, 0, 0.12),
-            0 0 0 1px rgba(255,255,255,0.9) inset;
-        transition: all 0.25s ease;
-    }
-
-    .contact-btn:hover {
-        transform: translateY(-2px);
-        box-shadow:
-            0 18px 45px rgba(0, 0, 0, 0.18),
-            0 0 0 1px rgba(255,255,255,0.95) inset,
-            0 0 40px rgba(99, 102, 241, 0.25);
-    }
-
-    .contact-btn:active {
-        transform: translateY(0);
-        box-shadow:
-            0 10px 25px rgba(0, 0, 0, 0.15),
-            0 0 0 1px rgba(255,255,255,0.9) inset;
-    }
-
-    .fiverr-btn {
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(10px);
-        color: #0f172a;
-        border: 1px solid rgba(255, 255, 255, 0.9);
-        box-shadow:
-            0 12px 30px rgba(0, 0, 0, 0.12),
-            0 0 0 1px rgba(255,255,255,0.9) inset;
-        transition: all 0.25s ease;
-    }
-
-    .fiverr-btn:hover {
-        transform: translateY(-2px);
-        box-shadow:
-            0 18px 45px rgba(0, 0, 0, 0.18),
-            0 0 0 1px rgba(255,255,255,0.95) inset,
-            0 0 40px rgba(83, 239, 125, 0.25);
-    }
-
-    .fiverr-btn img {
-        vertical-align: middle;
-    }
-</style>
 </html>
