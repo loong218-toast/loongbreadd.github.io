@@ -695,7 +695,7 @@
                 desc: ''
             },
             {
-                file: 'audio/imperialmarch.mp3',
+                file: 'audio/Imperial March.mp3',
                 title: '',
                 categories: ['arrangement', 'orchestral'],
                 desc: ''
@@ -880,7 +880,18 @@
         renderPortfolio();
 
         function slideCarousel(direction) {
-            const scrollDistance = trackContainer.clientWidth * 0.8;
+            const visibleCards = trackContainer.querySelectorAll('.track-card:not(.hidden)');
+            if (!visibleCards.length) return;
+
+            // Get exact width of one card + gap (24px)
+            const cardWidth = visibleCards[0].offsetWidth;
+            const gap = parseFloat(getComputedStyle(trackContainer).gap) || 24;
+            const cardStride = cardWidth + gap;
+
+            // Move by 3 cards on desktop (width > 900px), 2 on tablet, 1 on phone
+            const countToMove = trackContainer.clientWidth > 900 ? 3 : (trackContainer.clientWidth > 640 ? 2 : 1);
+            const scrollDistance = cardStride * countToMove;
+
             if (direction === 'left') {
                 trackContainer.scrollBy({ left: -scrollDistance, behavior: 'smooth' });
             } else {
