@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DaishiMusic | Orchestra · Arrangement Production & Scores</title>
+    <title>DaishiMusic | Orchestra · Arrangement</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -100,6 +100,31 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* Styled Volume Slider */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background: #C59A58;
+            cursor: pointer;
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+            transition: transform 0.1s ease;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+        input[type="range"]::-moz-range-thumb {
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background: #C59A58;
+            cursor: pointer;
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+        }
     </style>
 </head>
 <body class="relative antialiased selection:bg-studio-gold-light selection:text-studio-text arcade-scanline">
@@ -112,7 +137,7 @@
     <header class="sticky top-0 z-50 backdrop-blur-md bg-studio-bg/90 border-b border-studio-card-border transition-all duration-300 h-16 sm:h-18 flex items-center" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="flex items-center justify-between">
-                <!-- Brand Logo (Timpani_logo.png) -->
+                <!-- Brand Logo -->
                 <div class="flex items-center space-x-3 cursor-pointer select-none" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <div class="w-9 h-9 rounded-xl overflow-hidden border border-studio-card-border shadow-sm flex items-center justify-center bg-studio-surface">
                         <img src="images/Timpani_logo2.png" alt="DaishiMusic Logo" class="w-full h-full object-cover">
@@ -127,7 +152,7 @@
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-7 text-xs font-semibold uppercase tracking-wider text-studio-muted">
-                    <a href="#services" class="hover:text-studio-sage transition-colors">Our Services</a>
+                    <a href="#services" class="hover:text-studio-sage transition-colors">Services</a>
                     <a href="#showcase" class="hover:text-studio-gold transition-colors">Featured Works</a>
                     <a href="#pricing" class="hover:text-studio-gold transition-colors">Rates</a>
                     <a href="#testimonials" class="hover:text-studio-text transition-colors">Reviews</a>
@@ -276,23 +301,46 @@
         </div>
     </section>
 
-    <!-- SECTION 3: FEATURED WORKS (SLIDER + MP3 PROGRESS TRACKING) -->
+    <!-- SECTION 3: FEATURED WORKS (SLIDER + MP3 PROGRESS + PERFECT ALIGNMENT) -->
     <section id="showcase" class="py-24 relative overflow-hidden bg-studio-bg border-b border-studio-card-border">
         
         <!-- Ambient Canvas Waveform -->
         <canvas id="ambientWaveCanvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-40 blur-[3px]"></canvas>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
-                <div>
-                    <span class="font-mono text-studio-gold text-xs font-bold tracking-[0.2em] uppercase">Tape Archives</span>
-                    <h2 class="font-serif-title text-4xl sm:text-5xl font-bold text-studio-text mt-1">Featured Works</h2>
-                </div>
+            
+            <div class="mb-8 space-y-5">
                 
-                <!-- Category Tabs + Slider Arrows Controls -->
-                <div class="flex flex-wrap items-center gap-3 mt-6 md:mt-0">
-                    <!-- Filters -->
-                    <div class="flex flex-wrap gap-2 font-mono text-xs" id="genre-filters">
+                <!-- TOP LEVEL: Section Title + Global Volume Control -->
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                    <div>
+                        <span class="font-mono text-studio-gold text-xs font-bold tracking-[0.2em] uppercase">Tape Archives</span>
+                        <h2 class="font-serif-title text-4xl sm:text-5xl font-bold text-studio-text mt-1">Featured Works</h2>
+                    </div>
+
+                    <!-- Global Master Volume Slider (Cleanly anchored top-right) -->
+                    <div class="flex items-center space-x-2.5 bg-studio-card px-3.5 py-2 rounded-xl border border-studio-card-border shadow-soft-tactile select-none self-start sm:self-auto flex-shrink-0">
+                        <button id="volume-toggle-btn" type="button" class="text-studio-muted hover:text-studio-gold transition-colors focus:outline-none" title="Mute/Unmute">
+                            <i id="volume-icon" class="fa-solid fa-volume-low text-xs text-studio-gold"></i>
+                        </button>
+                        <input
+                            type="range"
+                            id="global-volume-slider"
+                            min="0"
+                            max="100"
+                            value="50"
+                            class="w-20 sm:w-24 h-1.5 bg-studio-surface rounded-lg appearance-none cursor-pointer focus:outline-none"
+                            title="Volume: 50%"
+                        >
+                        <span id="volume-percent" class="font-mono text-[11px] text-studio-muted w-8 text-right inline-block tabular-nums select-none">50%</span>
+                    </div>
+                </div>
+
+                <!-- SAME LEVEL ROW: Categories on Left <---------->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-studio-card-border/60">
+                    
+                    <!-- Category Tabs -->
+                    <div class="flex flex-wrap items-center gap-2 font-mono text-xs" id="genre-filters">
                         <button onclick="filterGenre('all')" class="genre-btn active px-3.5 py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-gold text-white shadow-arcade-button">
                             All
                         </button>
@@ -307,8 +355,8 @@
                         </button>
                     </div>
 
-                    <!-- Left / Right Slider Arrows -->
-                    <div class="flex items-center space-x-2 pl-2">
+                    <!-- Slide Navigation Chevrons (At the exact same level/rank as the categories) -->
+                    <div class="flex items-center space-x-1.5 self-end sm:self-auto flex-shrink-0">
                         <button onclick="slideCarousel('left')" title="Previous Tracks" class="w-10 h-10 rounded-xl bg-studio-card hover:bg-studio-surface border border-studio-card-border flex items-center justify-center text-studio-text shadow-arcade-button hover:translate-y-0.5 transition-all">
                             <i class="fa-solid fa-chevron-left text-xs"></i>
                         </button>
@@ -316,7 +364,9 @@
                             <i class="fa-solid fa-chevron-right text-xs"></i>
                         </button>
                     </div>
+
                 </div>
+
             </div>
 
             <!-- Horizontal Carousel Track Container -->
@@ -482,13 +532,8 @@
                 <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-studio-text mt-1 mb-6">Send a Message</h2>
 
                 <form id="booking-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                    <!-- Web3Forms Access Key -->
                     <input type="hidden" name="access_key" value="b032fbe9-b93d-401a-9b8c-665743a44248">
-                    
-                    <!-- Email Subject Line -->
                     <input type="hidden" name="subject" value="New Commission Request from DaishiMusic Site">
-                    
-                    <!-- Anti-Bot Honeypot -->
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -539,6 +584,12 @@
 
         </div>
     </section>
+
+    <!-- GENTLE TOAST NOTIFICATION (Used for missing audio or status notices) -->
+    <div id="studio-toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 bg-studio-card border border-studio-card-border shadow-xl rounded-2xl px-5 py-3.5 flex items-center space-x-3 text-xs font-mono">
+        <i id="toast-icon" class="fa-solid fa-circle-exclamation text-studio-peach"></i>
+        <span id="toast-text" class="text-studio-text font-medium">Notice</span>
+    </div>
 
     <!-- SUCCESS MODAL -->
     <div id="message-modal" class="fixed inset-0 bg-stone-900/30 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
@@ -594,6 +645,23 @@
             }
         });
 
+        // Toast Helper
+        function showStudioToast(message, isError = true) {
+            const toast = document.getElementById('studio-toast');
+            const toastText = document.getElementById('toast-text');
+            const toastIcon = document.getElementById('toast-icon');
+
+            toastText.textContent = message;
+            toastIcon.className = isError 
+                ? 'fa-solid fa-triangle-exclamation text-studio-peach' 
+                : 'fa-solid fa-circle-check text-studio-sage';
+
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3500);
+        }
+
         // ===================================================================
         // PORTFOLIO MUSIC SYSTEM (Auto Title, Auto Duration, Multi-Category)
         // ===================================================================
@@ -619,7 +687,6 @@
             }
         };
 
-        // TRACK LIST (Preserved exactly as provided)
         const portfolioTracks = [
             {
                 file: 'audio/Cottonbloom.mp3',
@@ -631,12 +698,6 @@
                 file: 'audio/imperialmarch.mp3',
                 title: '',
                 categories: ['arrangement', 'orchestral'],
-                desc: ''
-            },
-            {
-                file: 'audio/Brassy Vibe.mp3',
-                title: '',
-                categories: ['game'],
                 desc: ''
             },
             {
@@ -693,6 +754,56 @@
         let currentPlayingIndex = null;
         const globalPlayer = document.getElementById('global-player');
 
+        // ===================================================================
+        // GLOBAL VOLUME SLIDER INITIALIZATION (Default 50%)
+        // ===================================================================
+        const volumeSlider = document.getElementById('global-volume-slider');
+        const volumeIcon = document.getElementById('volume-icon');
+        const volumePercent = document.getElementById('volume-percent');
+        const volumeToggleBtn = document.getElementById('volume-toggle-btn');
+
+        // Initialize default volume at 0.5 (50%)
+        globalPlayer.volume = 0.5;
+        let lastNonZeroVolume = 0.5;
+
+        function setMasterVolume(val) {
+            const numericVal = Math.max(0, Math.min(100, Number(val)));
+            const normalized = numericVal / 100;
+            
+            globalPlayer.volume = normalized;
+            volumeSlider.value = numericVal;
+            volumePercent.textContent = `${Math.round(numericVal)}%`;
+            volumeSlider.title = `Volume: ${Math.round(numericVal)}%`;
+
+            // Update speaker icon dynamically
+            if (normalized === 0) {
+                volumeIcon.className = 'fa-solid fa-volume-xmark text-xs text-studio-muted';
+            } else if (normalized < 0.5) {
+                volumeIcon.className = 'fa-solid fa-volume-low text-xs text-studio-gold';
+            } else {
+                volumeIcon.className = 'fa-solid fa-volume-high text-xs text-studio-gold';
+            }
+
+            if (normalized > 0) {
+                lastNonZeroVolume = normalized;
+            }
+        }
+
+        // Slider input listener
+        volumeSlider.addEventListener('input', (e) => {
+            setMasterVolume(e.target.value);
+        });
+
+        // Quick mute / unmute toggle button
+        volumeToggleBtn.addEventListener('click', () => {
+            if (globalPlayer.volume > 0) {
+                setMasterVolume(0);
+            } else {
+                setMasterVolume((lastNonZeroVolume || 0.5) * 100);
+            }
+        });
+
+        // Render Cards
         function renderPortfolio() {
             trackContainer.innerHTML = '';
 
@@ -752,7 +863,7 @@
 
                 trackContainer.appendChild(card);
 
-                // Preload audio metadata to display true duration
+                // Safe preloading: If the file is missing, gracefully display --:--
                 const preloadAudio = new Audio();
                 preloadAudio.src = track.file;
                 preloadAudio.addEventListener('loadedmetadata', () => {
@@ -761,7 +872,7 @@
                 });
                 preloadAudio.addEventListener('error', () => {
                     const durLabel = document.getElementById(`duration-${index}`);
-                    if (durLabel && durLabel.textContent === '--:--') durLabel.textContent = '03:45';
+                    if (durLabel) durLabel.textContent = '--:--';
                 });
             });
         }
@@ -777,13 +888,18 @@
             }
         }
 
+        // Safe playback handler
         function toggleTrackPlayback(index) {
             const track = portfolioTracks[index];
 
             if (currentPlayingIndex === index) {
                 if (globalPlayer.paused) {
-                    globalPlayer.play();
-                    setPlayingUI(index, true);
+                    globalPlayer.play().then(() => {
+                        setPlayingUI(index, true);
+                    }).catch(() => {
+                        showStudioToast("Track unavailable: '" + track.file + "'");
+                        setPlayingUI(index, false);
+                    });
                 } else {
                     globalPlayer.pause();
                     setPlayingUI(index, false);
@@ -794,10 +910,12 @@
                 }
                 currentPlayingIndex = index;
                 globalPlayer.src = track.file;
+                
                 globalPlayer.play().then(() => {
                     setPlayingUI(index, true);
-                }).catch(() => {
-                    alert("Audio file: '" + track.file + "' not found yet.\nPlease put your .mp3 into your 'audio/' folder!");
+                }).catch((err) => {
+                    // Safe fallback: Missing file won't break anything
+                    showStudioToast("Audio track unavailable (" + track.file + ")");
                     setPlayingUI(index, false);
                 });
             }
@@ -885,7 +1003,6 @@
             const submitText = document.getElementById('submit-text');
             const submitIcon = document.getElementById('submit-icon');
             
-            // Show sending state
             submitBtn.disabled = true;
             submitText.textContent = 'Sending...';
             submitIcon.className = 'fa-solid fa-spinner fa-spin text-xs';
@@ -906,10 +1023,10 @@
                     setTimeout(() => modal.classList.remove('opacity-0'), 10);
                     form.reset();
                 } else {
-                    alert('Submission failed: ' + (data.message || 'Please try again.'));
+                    showStudioToast('Submission error: ' + (data.message || 'Please retry.'));
                 }
             } catch (error) {
-                alert('Network error. Please try again later.');
+                showStudioToast('Network connection error. Please try again.');
             } finally {
                 submitBtn.disabled = false;
                 submitText.textContent = 'Send A Request';
