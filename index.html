@@ -206,7 +206,7 @@
                 </h1>
 
                 <p class="text-xs sm:text-sm md:text-base text-studio-muted leading-relaxed font-normal max-w-2xl">
-                    Immersive orchestral and contemporary scores that are thoughtfully crafted with consistency, high-quality instruments and exclusivity. By merging analog with digital and organic with electronic, you are invited into the bottomless well of sound.
+                    Immersive orchestral and contemporary scores that are thoughtfully crafted with consistency, high-quality instruments and exclusivity. By merging analog with digital and acoustic with orchestral elements, you are invited into the bottomless well of sound.
                 </p>
 
                 <div class="flex flex-wrap items-center gap-3 pt-1 font-mono text-xs">
@@ -257,7 +257,7 @@
                     </div>
                     <h3 class="font-serif-title text-2xl font-bold text-studio-text mb-2">Orchestration</h3>
                     <p class="text-xs text-studio-muted leading-relaxed mb-4">
-                        Full symphonic expansion, woodwind, brass, and string voicing, dynamic control, and hybrid acoustic arrangements.
+                        Full symphonic expansion, woodwind, brass, and string voicing, dynamic control, clean orchestral mixing, and hybrid acoustic arrangements.
                     </p>
                     <a href="#contact" class="font-mono text-xs font-bold text-studio-gold hover:underline">Commission <i class="fa-solid fa-arrow-right ml-1"></i></a>
                 </div>
@@ -607,22 +607,76 @@
 
     <!-- FOOTER -->
     <footer class="bg-studio-surface border-t border-studio-card-border py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0 text-center sm:text-left">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-lg overflow-hidden border border-studio-card-border flex items-center justify-center bg-studio-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            
+            <!-- Brand / Logo -->
+            <div class="flex items-center space-x-3 cursor-pointer select-none" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="w-8 h-8 rounded-lg overflow-hidden border border-studio-card-border flex items-center justify-center bg-studio-card shadow-sm">
                     <img src="images/Timpani_logo2.png" alt="DaishiMusic Logo" class="w-full h-full object-cover">
                 </div>
                 <span class="font-serif-title text-xl font-bold text-studio-text">DaishiMusic</span>
             </div>
 
-            <p class="text-xs text-studio-muted font-mono">
-                &copy; <span id="copyright-year"></span> DaishiMusic. All rights reserved.
-            </p>
+            <!-- Copyright & Channels / Links Group -->
+            <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-5">
+                <p class="text-xs text-studio-muted font-mono">
+                    &copy; <span id="copyright-year"></span> DaishiMusic. All rights reserved.
+                </p>
+
+                <!-- Subtle separator dot for desktop -->
+                <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-studio-card-border"></span>
+
+                <!-- Channels / Icons Strip -->
+                <div class="flex items-center space-x-2">
+                    
+                    <!-- 1. Email -->
+                    <a href="mailto:contact@daishimusic.com" 
+                       title="Email: contact@daishimusic.com" 
+                       class="w-8 h-8 rounded-xl bg-studio-card hover:bg-studio-bg border border-studio-card-border hover:border-studio-gold text-studio-muted hover:text-studio-gold flex items-center justify-center transition-all shadow-arcade-button hover:translate-y-0.5 group">
+                        <i class="fa-solid fa-envelope text-xs group-hover:scale-110 transition-transform"></i>
+                        <span class="sr-only">Email</span>
+                    </a>
+
+                    <!-- 2. Fiverr -->
+                    <a href="https://www.fiverr.com/s/YLL17aQ" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       title="Fiverr Profile" 
+                       class="w-8 h-8 rounded-xl bg-studio-card hover:bg-studio-bg border border-studio-card-border hover:border-studio-gold text-studio-muted flex items-center justify-center transition-all shadow-arcade-button hover:translate-y-0.5 group">
+                        <img src="images/icons8-fiverr.svg" alt="Fiverr" class="w-3.5 h-3.5 object-contain group-hover:scale-110 transition-transform">
+                        <span class="sr-only">Fiverr</span>
+                    </a>
+
+                    <!-- 3. SoundCloud -->
+                    <a href="https://soundcloud.com/daishimusic" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       title="SoundCloud" 
+                       class="w-8 h-8 rounded-xl bg-studio-card hover:bg-studio-bg border border-studio-card-border hover:border-studio-gold text-studio-muted hover:text-studio-gold flex items-center justify-center transition-all shadow-arcade-button hover:translate-y-0.5 group">
+                        <i class="fa-brands fa-soundcloud text-xs group-hover:scale-110 transition-transform"></i>
+                        <span class="sr-only">SoundCloud</span>
+                    </a>
+
+                    <!-- 4. X (Twitter) -->
+                    <a href="https://x.com/MysMaster40kg" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       title="X (Twitter)" 
+                       class="w-8 h-8 rounded-xl bg-studio-card hover:bg-studio-bg border border-studio-card-border hover:border-studio-gold text-studio-muted hover:text-studio-gold flex items-center justify-center transition-all shadow-arcade-button hover:translate-y-0.5 group">
+                        <svg class="w-3 h-3 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        <span class="sr-only">X (Twitter)</span>
+                    </a>
+                    
+                </div>
+            </div>
+
         </div>
     </footer>
 
     <!-- SHARED GLOBAL AUDIO PLAYER -->
-    <audio id="global-player" preload="metadata"></audio>
+    <audio id="global-player" preload="metadata" disableremoteplayback x-webkit-airplay="deny"></audio>
 
     <!-- SCRIPT LOGIC -->
     <script>
@@ -735,6 +789,12 @@
                 title: '',
                 categories: ['arrangement', 'orchestral'],
                 desc: ''
+            },
+                        {
+                file: 'audio/Small Forest.mp3',
+                title: '',
+                categories: ['game', 'orchestral'],
+                desc: ''
             }
         ];
 
@@ -753,6 +813,7 @@
         const trackContainer = document.getElementById('carousel-track');
         let currentPlayingIndex = null;
         const globalPlayer = document.getElementById('global-player');
+        globalPlayer.disableRemotePlayback = true; // Prevents Chrome/Edge from scanning local apps & devices
 
         // ===================================================================
         // GLOBAL VOLUME SLIDER INITIALIZATION (Default 50%)
@@ -865,6 +926,7 @@
 
                 // Safe preloading: If the file is missing, gracefully display --:--
                 const preloadAudio = new Audio();
+                preloadAudio.disableRemotePlayback = true; // Prevents scanning during preload
                 preloadAudio.src = track.file;
                 preloadAudio.addEventListener('loadedmetadata', () => {
                     const durLabel = document.getElementById(`duration-${index}`);
