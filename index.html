@@ -380,11 +380,12 @@
     <section id="pricing" class="py-20 bg-studio-surface/50 border-b border-studio-card-border relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="font-mono text-studio-gold text-xs font-bold tracking-[0.2em] uppercase"></span>
                 <h2 class="font-serif-title text-4xl sm:text-5xl font-bold text-studio-text mt-1.5">
                     Commission Rates
                 </h2>
                 <p class="text-studio-muted text-sm sm:text-base mt-2">
-                    Transparent, unified production tiers accounting for composition, orchestration, custom arrangement, and game soundtracks.
+                    Transparent rates scaled by instrumentation size for orchestration, custom arrangements, and soundtrack production.
                 </p>
             </div>
 
@@ -393,68 +394,115 @@
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr class="bg-studio-surface/80 border-b border-studio-card-border font-mono text-[11px] uppercase tracking-wider text-studio-muted">
-                                <th class="py-4 px-6 font-bold text-studio-text">Tier</th>
-                                <th class="py-4 px-6 font-bold">Duration</th>
-                                <th class="py-4 px-6 font-bold">Instrumentation</th>
-                                <th class="py-4 px-6 font-bold">Rate</th>
-                                <th class="py-4 px-6 font-bold">Revisions</th>
+                                <th class="py-4 px-6 font-bold text-studio-text">Instrumentation</th>
+                                <th class="py-4 px-6 font-bold text-studio-gold">Rate</th>
                                 <th class="py-4 px-6 font-bold">Turnaround</th>
-                                <th class="py-4 px-6 font-bold text-right text-studio-gold">Price (USD)</th>
+                                <th class="py-4 px-6 font-bold">Revisions</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-studio-card-border font-mono text-xs">
+                            <!-- Row 1: 1–9 Instruments -->
                             <tr class="hover:bg-studio-bg/60 transition-colors group">
                                 <td class="py-4 px-6">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="w-2 h-2 rounded-full bg-studio-gold/60"></span>
-                                        <span class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">Essentials</span>
+                                    <div class="flex items-center space-x-3">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-studio-gold/60 flex-shrink-0"></span>
+                                        <span class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">
+                                            1 – 9 Instruments
+                                        </span>
                                     </div>
                                 </td>
-                                <td class="py-4 px-6 text-studio-text font-bold">Each 1 Min</td>
-                                <td class="py-4 px-6 text-studio-muted">1–9 Instruments</td>
-                                <td class="py-4 px-6 text-studio-muted">$6 / instr / min</td>
                                 <td class="py-4 px-6">
-                                    <span class="px-2 py-0.5 rounded bg-studio-surface border border-studio-card-border text-[10px] text-studio-text font-bold">2 Revisions</span>
-                                </td>
-                                <td class="py-4 px-6 text-studio-text">4 Days</td>
-                                <td class="py-4 px-6 text-right font-serif-title text-2xl font-bold text-studio-gold">$30.00</td>
-                            </tr>
-                            <tr class="hover:bg-studio-bg/60 transition-colors group bg-studio-gold-light/20">
-                                <td class="py-4 px-6">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="w-2 h-2 rounded-full bg-studio-gold"></span>
-                                        <span class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">Standard</span>
+                                    <div class="flex items-baseline space-x-1.5">
+                                        <span class="font-serif-title text-3xl font-bold text-studio-gold">$6.00</span>
+                                        <span class="text-xs text-studio-muted font-mono">/ instr / min</span>
                                     </div>
                                 </td>
-                                <td class="py-4 px-6 text-studio-text font-bold">Each 1 Min</td>
-                                <td class="py-4 px-6 text-studio-muted">10–19 Instruments</td>
-                                <td class="py-4 px-6 text-studio-muted">$5 / instr / min</td>
+                                <td class="py-4 px-6 text-studio-text font-bold">3 Days</td>
                                 <td class="py-4 px-6">
-                                    <span class="px-2 py-0.5 rounded bg-studio-surface border border-studio-card-border text-[10px] text-studio-text font-bold">2 Revisions</span>
+                                    <span class="px-2.5 py-1 rounded bg-studio-surface border border-studio-card-border text-[10px] text-studio-text font-bold">
+                                        2 Revisions
+                                    </span>
                                 </td>
-                                <td class="py-4 px-6 text-studio-text">7 Days</td>
-                                <td class="py-4 px-6 text-right font-serif-title text-2xl font-bold text-studio-gold">$50.00</td>
                             </tr>
+
+                            <!-- Row 2: 10–19 Instruments -->
+                            <tr class="hover:bg-studio-bg/60 transition-colors group bg-studio-gold-light/10">
+                                <td class="py-4 px-6">
+                                    <div class="flex items-center space-x-3">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-studio-gold/60 flex-shrink-0"></span>
+                                        <span class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">
+                                            10 – 19 Instruments
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6">
+                                    <div class="flex items-baseline space-x-1.5">
+                                        <span class="font-serif-title text-3xl font-bold text-studio-gold">$5.00</span>
+                                        <span class="text-xs text-studio-muted font-mono">/ instr / min</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 text-studio-text font-bold">5 Days</td>
+                                <td class="py-4 px-6">
+                                    <span class="px-2.5 py-1 rounded bg-studio-surface border border-studio-card-border text-[10px] text-studio-text font-bold">
+                                        2 Revisions
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <!-- Row 3: 20+ Instruments -->
                             <tr class="hover:bg-studio-bg/60 transition-colors group">
                                 <td class="py-4 px-6">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="w-2 h-2 rounded-full bg-studio-lavender"></span>
-                                        <span class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">Pro</span>
+                                    <div class="flex items-center space-x-3">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-studio-gold/60 flex-shrink-0"></span>
+                                        <span class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">
+                                            20+ Instruments
+                                        </span>
                                     </div>
                                 </td>
-                                <td class="py-4 px-6 text-studio-text font-bold">Each 1 Min</td>
-                                <td class="py-4 px-6 text-studio-muted">20+ Instruments</td>
-                                <td class="py-4 px-6 text-studio-muted">$4 / instr / min</td>
                                 <td class="py-4 px-6">
-                                    <span class="px-2 py-0.5 rounded bg-studio-surface border border-studio-card-border text-[10px] text-studio-text font-bold">2 Revisions</span>
+                                    <div class="flex items-baseline space-x-1.5">
+                                        <span class="font-serif-title text-3xl font-bold text-studio-gold">$4.00</span>
+                                        <span class="text-xs text-studio-muted font-mono">/ instr / min</span>
+                                    </div>
                                 </td>
-                                <td class="py-4 px-6 text-studio-text">7 Days</td>
-                                <td class="py-4 px-6 text-right font-serif-title text-2xl font-bold text-studio-gold">$80.00</td>
+                                <td class="py-4 px-6 text-studio-text font-bold">7 Days+</td>
+                                <td class="py-4 px-6">
+                                    <span class="px-2.5 py-1 rounded bg-studio-surface border border-studio-card-border text-[10px] text-studio-text font-bold">
+                                        2 Revisions
+                                    </span>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
+                <!-- FORMULA DISPLAY BAR -->
+                <div class="p-6 bg-studio-surface/70 border-t border-studio-card-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-10 h-10 rounded-xl bg-studio-gold/15 text-studio-gold border border-studio-gold/30 flex items-center justify-center text-sm shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <div>
+                            <span class="font-mono text-[10px] tracking-widest uppercase font-bold text-studio-muted block">Pricing Formula</span>
+                            <div class="font-mono text-xs sm:text-sm font-bold text-studio-text flex flex-wrap items-center gap-1.5 mt-0.5">
+                                <span>Total</span>
+                                <span class="text-studio-muted font-normal">=</span>
+                                <span class="px-2 py-0.5 rounded-md bg-studio-card border border-studio-card-border text-studio-gold font-bold shadow-sm">Rate</span>
+                                <span class="text-studio-muted font-normal">×</span>
+                                <span class="px-2 py-0.5 rounded-md bg-studio-card border border-studio-card-border text-studio-text font-bold shadow-sm">Instruments</span>
+                                <span class="text-studio-muted font-normal">×</span>
+                                <span class="px-2 py-0.5 rounded-md bg-studio-card border border-studio-card-border text-studio-text font-bold shadow-sm">Minutes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-studio-card border border-studio-card-border shadow-soft-tactile text-xs font-mono text-studio-muted">
+                        <i class="fa-solid fa-circle-info text-studio-gold"></i>
+                        <span>Minimum order fee: <strong class="text-studio-text font-bold">$30.00</strong> per project</span>
+                    </div>
+                </div>
+
+                <!-- FOOTNOTES -->
                 <div class="p-6 sm:p-7 bg-studio-surface/40 border-t border-studio-card-border space-y-2 text-xs text-studio-muted font-mono leading-relaxed">
                     <div class="flex items-start space-x-2">
                         <span class="text-studio-gold font-bold">*</span>
