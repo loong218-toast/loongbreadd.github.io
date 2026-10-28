@@ -17,6 +17,9 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    screens: {
+                        'xs': '420px',
+                    },
                     colors: {
                         'studio-bg': '#F6F3EC',           /* Soft warm parchment / linen */
                         'studio-card': '#FFFFFF',         /* Ivory card surface */
@@ -26,6 +29,7 @@
                         'studio-gold-light': '#F1E5D1',   /* Soft cream amber */
                         'studio-lavender': '#857896',     /* Muted arcade pastel violet */
                         'studio-sage': '#638C7D',         /* Vintage arcade phosphor / sage mint */
+                        'studio-sage-light': '#EBF2EE',   /* Soft sage tint */
                         'studio-darkred': '#8B2635',      /* Deep dark red for arrangements */
                         'studio-darkred-light': '#F7E9EB',/* Tinted dark red background */
                         'studio-peach': '#C67D73',        /* Desaturated arcade coral */
@@ -176,7 +180,7 @@
 
         <!-- Mobile menu dropdown -->
         <div class="hidden md:hidden bg-studio-card border-b border-studio-card-border px-6 pt-4 pb-8 space-y-4 font-mono text-xs uppercase absolute top-full left-0 w-full shadow-lg" id="mobile-menu">
-            <a href="#services" class="block py-2 text-studio-text font-medium hover:text-studio-sage">Our Services</a>
+            <a href="#services" class="block py-2 text-studio-text font-medium hover:text-studio-sage">Services</a>
             <a href="#showcase" class="block py-2 text-studio-text font-medium hover:text-studio-gold">Featured Works</a>
             <a href="#pricing" class="block py-2 text-studio-text font-medium hover:text-studio-gold">Rates</a>
             <a href="#testimonials" class="block py-2 text-studio-text font-medium hover:text-studio-text">Reviews</a>
@@ -185,7 +189,7 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative min-h-[calc(100dvh-4rem)] flex items-center py-6 sm:py-8 lg:py-10 overflow-hidden bg-studio-grid">
+    <section class="relative min-h-[calc(100dvh-4rem)] flex items-center py-8 sm:py-10 lg:py-12 overflow-hidden bg-studio-grid">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div class="max-w-3xl space-y-4 sm:space-y-5 text-left">
                 
@@ -199,38 +203,38 @@
                     </span>
                 </div>
 
-                <h1 class="font-serif-title text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-studio-text">
+                <h1 class="font-serif-title text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-studio-text text-left">
                     Meet Your New Exclusive & <br class="hidden sm:inline" />
                     <span class="italic font-normal text-studio-gold">Signature</span> 
                     <span class="underline decoration-studio-lavender/40 decoration-wavy decoration-2">Sound.</span>
                 </h1>
 
-                <p class="text-xs sm:text-sm md:text-base text-studio-muted leading-relaxed font-normal max-w-2xl">
+                <p class="text-xs sm:text-sm md:text-base text-studio-muted leading-relaxed font-normal max-w-2xl text-left">
                     Immersive orchestral and contemporary scores that are thoughtfully crafted with consistency, high-quality instruments and exclusivity. By merging analog with digital and acoustic with orchestral elements, you are invited into the bottomless well of sound.
                 </p>
 
-                <div class="flex flex-wrap items-center gap-3 pt-1 font-mono text-xs">
-                    <a href="#showcase" class="px-6 py-3 rounded-xl bg-studio-gold text-white font-bold tracking-wider uppercase hover:bg-studio-gold/90 transition-all shadow-arcade-button hover:translate-y-0.5 text-center flex items-center justify-center space-x-2">
+                <div class="flex flex-wrap items-center gap-3 pt-2 font-mono text-xs">
+                    <a href="#showcase" class="px-5 sm:px-6 py-3 rounded-xl bg-studio-gold text-white font-bold tracking-wider uppercase hover:bg-studio-gold/90 transition-all shadow-arcade-button hover:translate-y-0.5 text-center flex items-center justify-center space-x-2">
                         <i class="fa-solid fa-play text-[10px]"></i>
                         <span>Play Portfolio</span>
                     </a>
-                    <a href="#services" class="px-6 py-3 rounded-xl bg-studio-card hover:bg-studio-surface text-studio-text border border-studio-card-border font-bold tracking-wider uppercase transition-all shadow-arcade-button hover:translate-y-0.5 text-center">
+                    <a href="#services" class="px-5 sm:px-6 py-3 rounded-xl bg-studio-card hover:bg-studio-surface text-studio-text border border-studio-card-border font-bold tracking-wider uppercase transition-all shadow-arcade-button hover:translate-y-0.5 text-center">
                         Explore Services
                     </a>
                 </div>
 
-                <div class="pt-4 border-t border-studio-card-border/80 grid grid-cols-3 gap-4 max-w-lg">
+                <div class="pt-5 border-t border-studio-card-border/80 grid grid-cols-3 gap-3 sm:gap-4 max-w-lg text-left">
                     <div>
-                        <span class="font-serif-title text-2xl sm:text-3xl font-bold text-studio-gold block">High-quality</span>
-                        <p class="font-mono text-[9px] sm:text-[10px] text-studio-muted uppercase tracking-wider">Instruments</p>
+                        <span class="font-serif-title text-xl sm:text-2xl md:text-3xl font-bold text-studio-gold block leading-tight">High-quality</span>
+                        <p class="font-mono text-[9px] sm:text-[10px] text-studio-muted uppercase tracking-wider mt-0.5">Instruments</p>
                     </div>
                     <div>
-                        <span class="font-serif-title text-2xl sm:text-3xl font-bold text-studio-lavender block">Custom</span>
-                        <p class="font-mono text-[9px] sm:text-[10px] text-studio-muted uppercase tracking-wider">Scoring & Arranging</p>
+                        <span class="font-serif-title text-xl sm:text-2xl md:text-3xl font-bold text-studio-lavender block leading-tight">Custom</span>
+                        <p class="font-mono text-[9px] sm:text-[10px] text-studio-muted uppercase tracking-wider mt-0.5">Scoring & Arranging</p>
                     </div>
                     <div>
-                        <span class="font-serif-title text-2xl sm:text-3xl font-bold text-studio-sage block">100%</span>
-                        <p class="font-mono text-[9px] sm:text-[10px] text-studio-muted uppercase tracking-wider">No AI Used</p>
+                        <span class="font-serif-title text-xl sm:text-2xl md:text-3xl font-bold text-studio-sage block leading-tight">100%</span>
+                        <p class="font-mono text-[9px] sm:text-[10px] text-studio-muted uppercase tracking-wider mt-0.5">No AI Used</p>
                     </div>
                 </div>
 
@@ -238,18 +242,18 @@
         </div>
     </section>
 
-    <!-- SECTION 2: OUR SERVICES -->
+    <!-- SECTION 2: SERVICES -->
     <section id="services" class="py-20 bg-studio-surface/60 border-y border-studio-card-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-14">
-                <span class="font-mono text-studio-sage text-xs font-bold tracking-[0.2em] uppercase">[ PRODUCTION DESK ]</span>
-                <h2 class="font-serif-title text-4xl sm:text-5xl font-bold text-studio-text mt-1">Services</h2>
-                <p class="text-studio-muted text-sm sm:text-base mt-2">
+            <div class="text-left sm:text-center max-w-2xl sm:mx-auto mb-12 sm:mb-14">
+                <span class="font-mono text-studio-sage text-xs font-bold tracking-[0.2em] uppercase block">[ PRODUCTION DESK ]</span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl md:text-5xl font-bold text-studio-text mt-1.5">Services</h2>
+                <p class="text-studio-muted text-xs sm:text-sm md:text-base mt-2">
                     Modern orchestration and tailored musical arrangements crafted for digital media and live performance.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
                 <!-- Service 1 -->
                 <div class="bg-studio-card rounded-2xl p-7 border border-studio-card-border hover:border-studio-gold/60 transition-all duration-300 shadow-soft-tactile">
                     <div class="w-11 h-11 rounded-xl bg-studio-gold-light/70 text-studio-gold flex items-center justify-center text-lg mb-5 border border-studio-gold/20">
@@ -301,24 +305,24 @@
         </div>
     </section>
 
-    <!-- SECTION 3: FEATURED WORKS (SLIDER + MP3 PROGRESS + PERFECT ALIGNMENT) -->
-    <section id="showcase" class="py-24 relative overflow-hidden bg-studio-bg border-b border-studio-card-border">
+    <!-- SECTION 3: FEATURED WORKS (SLIDER + MP3 PROGRESS + VOCAL CATEGORY) -->
+    <section id="showcase" class="py-20 sm:py-24 relative overflow-hidden bg-studio-bg border-b border-studio-card-border">
         
         <!-- Ambient Canvas Waveform -->
         <canvas id="ambientWaveCanvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-40 blur-[3px]"></canvas>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
             
             <div class="mb-8 space-y-5">
                 
                 <!-- TOP LEVEL: Section Title + Global Volume Control -->
                 <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-                    <div>
-                        <span class="font-mono text-studio-gold text-xs font-bold tracking-[0.2em] uppercase">Tape Archives</span>
-                        <h2 class="font-serif-title text-4xl sm:text-5xl font-bold text-studio-text mt-1">Featured Works</h2>
+                    <div class="text-left">
+                        <span class="font-mono text-studio-gold text-xs font-bold tracking-[0.2em] uppercase block">Tape Archives</span>
+                        <h2 class="font-serif-title text-3xl xs:text-4xl sm:text-5xl font-bold text-studio-text mt-1">Featured Works</h2>
                     </div>
 
-                    <!-- Global Master Volume Slider (Cleanly anchored top-right) -->
+                    <!-- Global Master Volume Slider -->
                     <div class="flex items-center space-x-2.5 bg-studio-card px-3.5 py-2 rounded-xl border border-studio-card-border shadow-soft-tactile select-none self-start sm:self-auto flex-shrink-0">
                         <button id="volume-toggle-btn" type="button" class="text-studio-muted hover:text-studio-gold transition-colors focus:outline-none" title="Mute/Unmute">
                             <i id="volume-icon" class="fa-solid fa-volume-low text-xs text-studio-gold"></i>
@@ -336,31 +340,34 @@
                     </div>
                 </div>
 
-                <!-- SAME LEVEL ROW: Categories on Left <---------->
+                <!-- CATEGORIES & CONTROLS ROW -->
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-studio-card-border/60">
                     
-                    <!-- Category Tabs -->
-                    <div class="flex flex-wrap items-center gap-2 font-mono text-xs" id="genre-filters">
-                        <button onclick="filterGenre('all')" class="genre-btn active px-3.5 py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-gold text-white shadow-arcade-button">
+                    <!-- Category Tabs (Includes VOCAL) -->
+                    <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 font-mono text-xs" id="genre-filters">
+                        <button onclick="filterGenre('all', event)" class="genre-btn active px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-gold text-white shadow-arcade-button text-[11px] sm:text-xs">
                             All
                         </button>
-                        <button onclick="filterGenre('orchestral')" class="genre-btn px-3.5 py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-card text-studio-muted hover:text-studio-text border border-studio-card-border shadow-sm">
+                        <button onclick="filterGenre('orchestral', event)" class="genre-btn px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-card text-studio-muted hover:text-studio-text border border-studio-card-border shadow-sm text-[11px] sm:text-xs">
                             Orchestral
                         </button>
-                        <button onclick="filterGenre('game')" class="genre-btn px-3.5 py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-card text-studio-muted hover:text-studio-text border border-studio-card-border shadow-sm">
+                        <button onclick="filterGenre('game', event)" class="genre-btn px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-card text-studio-muted hover:text-studio-text border border-studio-card-border shadow-sm text-[11px] sm:text-xs">
                             Game Soundtrack
                         </button>
-                        <button onclick="filterGenre('arrangement')" class="genre-btn px-3.5 py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-card text-studio-muted hover:text-studio-text border border-studio-card-border shadow-sm">
+                        <button onclick="filterGenre('arrangement', event)" class="genre-btn px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-card text-studio-muted hover:text-studio-text border border-studio-card-border shadow-sm text-[11px] sm:text-xs">
                             Arrangement
+                        </button>
+                        <button onclick="filterGenre('vocal', event)" class="genre-btn px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl font-bold tracking-wider uppercase transition-all bg-studio-card text-studio-muted hover:text-studio-text border border-studio-card-border shadow-sm text-[11px] sm:text-xs">
+                            Vocal
                         </button>
                     </div>
 
-                    <!-- Slide Navigation Chevrons (At the exact same level/rank as the categories) -->
-                    <div class="flex items-center space-x-1.5 self-end sm:self-auto flex-shrink-0">
-                        <button onclick="slideCarousel('left')" title="Previous Tracks" class="w-10 h-10 rounded-xl bg-studio-card hover:bg-studio-surface border border-studio-card-border flex items-center justify-center text-studio-text shadow-arcade-button hover:translate-y-0.5 transition-all">
+                    <!-- Slide Navigation Chevrons -->
+                    <div class="flex items-center space-x-1.5 self-end sm:self-auto flex-shrink-0 pt-1 sm:pt-0">
+                        <button onclick="slideCarousel('left')" title="Previous Tracks" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-studio-card hover:bg-studio-surface border border-studio-card-border flex items-center justify-center text-studio-text shadow-arcade-button hover:translate-y-0.5 transition-all">
                             <i class="fa-solid fa-chevron-left text-xs"></i>
                         </button>
-                        <button onclick="slideCarousel('right')" title="Next Tracks" class="w-10 h-10 rounded-xl bg-studio-card hover:bg-studio-surface border border-studio-card-border flex items-center justify-center text-studio-text shadow-arcade-button hover:translate-y-0.5 transition-all">
+                        <button onclick="slideCarousel('right')" title="Next Tracks" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-studio-card hover:bg-studio-surface border border-studio-card-border flex items-center justify-center text-studio-text shadow-arcade-button hover:translate-y-0.5 transition-all">
                             <i class="fa-solid fa-chevron-right text-xs"></i>
                         </button>
                     </div>
@@ -370,7 +377,7 @@
             </div>
 
             <!-- Horizontal Carousel Track Container -->
-            <div id="carousel-track" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-4 no-scrollbar">
+            <div id="carousel-track" class="flex gap-5 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-4 no-scrollbar">
                 <!-- Cards are dynamically injected via JavaScript -->
             </div>
         </div>
@@ -379,13 +386,13 @@
     <!-- SECTION 4: COMMISSION RATES -->
     <section id="pricing" class="py-20 bg-studio-surface/50 border-b border-studio-card-border relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="font-mono text-studio-gold text-xs font-bold tracking-[0.2em] uppercase"></span>
-                <h2 class="font-serif-title text-4xl sm:text-5xl font-bold text-studio-text mt-1.5">
+            <div class="text-left sm:text-center max-w-3xl sm:mx-auto mb-10 sm:mb-12">
+                <span class="font-mono text-studio-gold text-xs font-bold tracking-[0.2em] uppercase block"></span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl md:text-5xl font-bold text-studio-text mt-1.5">
                     Commission Rates
                 </h2>
-                <p class="text-studio-muted text-sm sm:text-base mt-2">
-                    Transparent rates scaled by instrumentation size for orchestration, custom arrangements, and soundtrack production.
+                <p class="text-studio-muted text-xs sm:text-sm md:text-base mt-2">
+                    Transparent rates scaled by instrumentation size for orchestration, custom arrangements, and transcription.
                 </p>
             </div>
 
@@ -394,31 +401,31 @@
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr class="bg-studio-surface/80 border-b border-studio-card-border font-mono text-[11px] uppercase tracking-wider text-studio-muted">
-                                <th class="py-4 px-6 font-bold text-studio-text">Instrumentation</th>
-                                <th class="py-4 px-6 font-bold text-studio-gold">Rate</th>
-                                <th class="py-4 px-6 font-bold">Turnaround</th>
-                                <th class="py-4 px-6 font-bold">Revisions</th>
+                                <th class="py-4 px-6 font-bold text-studio-text whitespace-nowrap">Instrumentation</th>
+                                <th class="py-4 px-6 font-bold text-studio-gold whitespace-nowrap">Rate</th>
+                                <th class="py-4 px-6 font-bold text-studio-text whitespace-nowrap">Estimated Turnaround</th>
+                                <th class="py-4 px-6 font-bold whitespace-nowrap">Revisions</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-studio-card-border font-mono text-xs">
                             <!-- Row 1: 1–9 Instruments -->
                             <tr class="hover:bg-studio-bg/60 transition-colors group">
-                                <td class="py-4 px-6">
+                                <td class="py-4 px-6 whitespace-nowrap">
                                     <div class="flex items-center space-x-3">
                                         <span class="w-2.5 h-2.5 rounded-full bg-studio-gold/60 flex-shrink-0"></span>
-                                        <span class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">
+                                        <span class="font-serif-title text-xl sm:text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">
                                             1 – 9 Instruments
                                         </span>
                                     </div>
                                 </td>
-                                <td class="py-4 px-6">
+                                <td class="py-4 px-6 whitespace-nowrap">
                                     <div class="flex items-baseline space-x-1.5">
-                                        <span class="font-serif-title text-3xl font-bold text-studio-gold">$6.00</span>
+                                        <span class="font-serif-title text-2xl sm:text-3xl font-bold text-studio-gold">$6.00</span>
                                         <span class="text-xs text-studio-muted font-mono">/ instr / min</span>
                                     </div>
                                 </td>
-                                <td class="py-4 px-6 text-studio-text font-bold">3 Days</td>
-                                <td class="py-4 px-6">
+                                <td class="py-4 px-6 text-studio-text font-bold whitespace-nowrap">3 Days</td>
+                                <td class="py-4 px-6 whitespace-nowrap">
                                     <span class="px-2.5 py-1 rounded bg-studio-surface border border-studio-card-border text-[10px] text-studio-text font-bold">
                                         2 Revisions
                                     </span>
@@ -427,22 +434,22 @@
 
                             <!-- Row 2: 10–19 Instruments -->
                             <tr class="hover:bg-studio-bg/60 transition-colors group bg-studio-gold-light/10">
-                                <td class="py-4 px-6">
+                                <td class="py-4 px-6 whitespace-nowrap">
                                     <div class="flex items-center space-x-3">
                                         <span class="w-2.5 h-2.5 rounded-full bg-studio-gold/60 flex-shrink-0"></span>
-                                        <span class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">
+                                        <span class="font-serif-title text-xl sm:text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">
                                             10 – 19 Instruments
                                         </span>
                                     </div>
                                 </td>
-                                <td class="py-4 px-6">
+                                <td class="py-4 px-6 whitespace-nowrap">
                                     <div class="flex items-baseline space-x-1.5">
-                                        <span class="font-serif-title text-3xl font-bold text-studio-gold">$5.00</span>
+                                        <span class="font-serif-title text-2xl sm:text-3xl font-bold text-studio-gold">$5.00</span>
                                         <span class="text-xs text-studio-muted font-mono">/ instr / min</span>
                                     </div>
                                 </td>
-                                <td class="py-4 px-6 text-studio-text font-bold">5 Days</td>
-                                <td class="py-4 px-6">
+                                <td class="py-4 px-6 text-studio-text font-bold whitespace-nowrap">5 Days</td>
+                                <td class="py-4 px-6 whitespace-nowrap">
                                     <span class="px-2.5 py-1 rounded bg-studio-surface border border-studio-card-border text-[10px] text-studio-text font-bold">
                                         2 Revisions
                                     </span>
@@ -451,22 +458,22 @@
 
                             <!-- Row 3: 20+ Instruments -->
                             <tr class="hover:bg-studio-bg/60 transition-colors group">
-                                <td class="py-4 px-6">
+                                <td class="py-4 px-6 whitespace-nowrap">
                                     <div class="flex items-center space-x-3">
                                         <span class="w-2.5 h-2.5 rounded-full bg-studio-gold/60 flex-shrink-0"></span>
-                                        <span class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">
+                                        <span class="font-serif-title text-xl sm:text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors">
                                             20+ Instruments
                                         </span>
                                     </div>
                                 </td>
-                                <td class="py-4 px-6">
+                                <td class="py-4 px-6 whitespace-nowrap">
                                     <div class="flex items-baseline space-x-1.5">
-                                        <span class="font-serif-title text-3xl font-bold text-studio-gold">$4.00</span>
+                                        <span class="font-serif-title text-2xl sm:text-3xl font-bold text-studio-gold">$4.00</span>
                                         <span class="text-xs text-studio-muted font-mono">/ instr / min</span>
                                     </div>
                                 </td>
-                                <td class="py-4 px-6 text-studio-text font-bold">7 Days+</td>
-                                <td class="py-4 px-6">
+                                <td class="py-4 px-6 text-studio-text font-bold whitespace-nowrap">7 Days+</td>
+                                <td class="py-4 px-6 whitespace-nowrap">
                                     <span class="px-2.5 py-1 rounded bg-studio-surface border border-studio-card-border text-[10px] text-studio-text font-bold">
                                         2 Revisions
                                     </span>
@@ -477,12 +484,12 @@
                 </div>
 
                 <!-- FORMULA DISPLAY BAR -->
-                <div class="p-6 bg-studio-surface/70 border-t border-studio-card-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div class="p-5 sm:p-6 bg-studio-surface/70 border-t border-studio-card-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-left">
                     <div class="flex items-center space-x-3.5">
                         <div class="w-10 h-10 rounded-xl bg-studio-gold/15 text-studio-gold border border-studio-gold/30 flex items-center justify-center text-sm shadow-sm flex-shrink-0">
                             <i class="fa-solid fa-calculator"></i>
                         </div>
-                        <div>
+                        <div class="text-left">
                             <span class="font-mono text-[10px] tracking-widest uppercase font-bold text-studio-muted block">Pricing Formula</span>
                             <div class="font-mono text-xs sm:text-sm font-bold text-studio-text flex flex-wrap items-center gap-1.5 mt-0.5">
                                 <span>Total</span>
@@ -503,7 +510,7 @@
                 </div>
 
                 <!-- FOOTNOTES -->
-                <div class="p-6 sm:p-7 bg-studio-surface/40 border-t border-studio-card-border space-y-2 text-xs text-studio-muted font-mono leading-relaxed">
+                <div class="p-5 sm:p-7 bg-studio-surface/40 border-t border-studio-card-border space-y-2 text-xs text-studio-muted font-mono leading-relaxed text-left">
                     <div class="flex items-start space-x-2">
                         <span class="text-studio-gold font-bold">*</span>
                         <p>If purchasing <strong class="text-studio-text">music transcription or scoring only</strong> (without DAW virtual production, mixing, or audio stems), clients receive an automatic <strong class="text-studio-sage">20% discount</strong>.</p>
@@ -518,16 +525,16 @@
     </section>
 
     <!-- SECTION 5: REVIEWS & CONTACT -->
-    <section id="testimonials" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <section id="testimonials" class="py-20 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
             
-            <div class="lg:col-span-5 space-y-7">
+            <div class="lg:col-span-5 space-y-6 sm:space-y-7 text-left">
                 <div>
-                    <span class="font-mono text-studio-gold text-xs font-bold tracking-[0.2em] uppercase">Client Voices</span>
-                    <h2 class="font-serif-title text-4xl font-bold text-studio-text mt-1">Acclaim & Reviews</h2>
+                    <span class="font-mono text-studio-gold text-xs font-bold tracking-[0.2em] uppercase block">Client Voices</span>
+                    <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-studio-text mt-1">Reviews</h2>
                 </div>
 
-                <div class="space-y-5">
+                <div class="space-y-5 text-left">
                     <!-- Review 1: nayuki130 -->
                     <div class="bg-studio-card p-6 rounded-2xl border border-studio-card-border shadow-soft-tactile">
                         <div class="flex items-center space-x-1 text-studio-gold mb-3 text-xs">
@@ -537,7 +544,7 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="text-sm text-studio-muted italic leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-studio-muted italic leading-relaxed mb-4">
                             "It was a great experience working with this seller! The arranged track sounded exceptional and was perfectly tailored to my needs. Great communication, very fast delivery, and highly recommended!"
                         </p>
                         <div class="flex items-center space-x-3">
@@ -559,7 +566,7 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="text-sm text-studio-muted italic leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-studio-muted italic leading-relaxed mb-4">
                             "The seller is extremely skillful and not only created a unique track, but also showed great care and attention toward my project! The service provided was excellent, going far beyond my expectations. The whole process went very smoothly, with consistent updates on the progress and genuine dedication to fulfilling my request."
                         </p>
                         <div class="flex items-center space-x-3">
@@ -574,9 +581,9 @@
                 </div>
             </div>
 
-            <!-- Booking / Contact Form (Web3Forms Integrated) -->
-            <div id="contact" class="lg:col-span-7 bg-studio-card rounded-3xl p-8 sm:p-10 border border-studio-card-border shadow-soft-tactile relative">
-                <span class="font-mono text-studio-lavender text-xs font-bold tracking-[0.2em] uppercase">Get in Touch</span>
+            <!-- Booking / Contact Form -->
+            <div id="contact" class="lg:col-span-7 bg-studio-card rounded-3xl p-6 sm:p-8 md:p-10 border border-studio-card-border shadow-soft-tactile relative text-left">
+                <span class="font-mono text-studio-lavender text-xs font-bold tracking-[0.2em] uppercase block">Get in Touch</span>
                 <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-studio-text mt-1 mb-6">Send a Message</h2>
 
                 <form id="booking-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
@@ -633,7 +640,7 @@
         </div>
     </section>
 
-    <!-- GENTLE TOAST NOTIFICATION (Used for missing audio or status notices) -->
+    <!-- GENTLE TOAST NOTIFICATION -->
     <div id="studio-toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 bg-studio-card border border-studio-card-border shadow-xl rounded-2xl px-5 py-3.5 flex items-center space-x-3 text-xs font-mono">
         <i id="toast-icon" class="fa-solid fa-circle-exclamation text-studio-peach"></i>
         <span id="toast-text" class="text-studio-text font-medium">Notice</span>
@@ -765,7 +772,7 @@
         }
 
         // ===================================================================
-        // PORTFOLIO MUSIC SYSTEM (Auto Title, Auto Duration, Multi-Category)
+        // PORTFOLIO MUSIC SYSTEM (Auto Title, Auto Duration, Multi-Category, Vocal Support)
         // ===================================================================
 
         const categoryConfig = {
@@ -786,6 +793,12 @@
                 badgeClass: 'bg-studio-darkred-light text-studio-darkred border-studio-darkred/30',
                 accentColor: '#8B2635',
                 btnBg: 'bg-studio-darkred'
+            },
+            vocal: {
+                label: 'Vocal',
+                badgeClass: 'bg-studio-sage-light text-studio-sage border-studio-sage/30',
+                accentColor: '#638C7D',
+                btnBg: 'bg-studio-sage'
             }
         };
 
@@ -838,10 +851,16 @@
                 categories: ['arrangement', 'orchestral'],
                 desc: ''
             },
-                        {
+            {
                 file: 'audio/Small Forest.mp3',
                 title: '',
                 categories: ['game', 'orchestral'],
+                desc: ''
+            },
+            {
+                file: 'audio/Miss Red Apple.mp3',
+                title: '',
+                categories: ['vocal', 'orchestral'],
                 desc: ''
             }
         ];
@@ -861,7 +880,7 @@
         const trackContainer = document.getElementById('carousel-track');
         let currentPlayingIndex = null;
         const globalPlayer = document.getElementById('global-player');
-        globalPlayer.disableRemotePlayback = true; // Prevents Chrome/Edge from scanning local apps & devices
+        globalPlayer.disableRemotePlayback = true;
 
         // ===================================================================
         // GLOBAL VOLUME SLIDER INITIALIZATION (Default 50%)
@@ -871,7 +890,6 @@
         const volumePercent = document.getElementById('volume-percent');
         const volumeToggleBtn = document.getElementById('volume-toggle-btn');
 
-        // Initialize default volume at 0.5 (50%)
         globalPlayer.volume = 0.5;
         let lastNonZeroVolume = 0.5;
 
@@ -884,7 +902,6 @@
             volumePercent.textContent = `${Math.round(numericVal)}%`;
             volumeSlider.title = `Volume: ${Math.round(numericVal)}%`;
 
-            // Update speaker icon dynamically
             if (normalized === 0) {
                 volumeIcon.className = 'fa-solid fa-volume-xmark text-xs text-studio-muted';
             } else if (normalized < 0.5) {
@@ -898,12 +915,10 @@
             }
         }
 
-        // Slider input listener
         volumeSlider.addEventListener('input', (e) => {
             setMasterVolume(e.target.value);
         });
 
-        // Quick mute / unmute toggle button
         volumeToggleBtn.addEventListener('click', () => {
             if (globalPlayer.volume > 0) {
                 setMasterVolume(0);
@@ -928,7 +943,7 @@
 
                 const card = document.createElement('div');
                 card.id = `track-card-${index}`;
-                card.className = `track-card flex-shrink-0 w-[330px] sm:w-[360px] md:w-[380px] snap-start bg-studio-card/90 backdrop-blur-md rounded-2xl p-6 border border-studio-card-border hover:border-studio-gold/60 transition-all duration-300 shadow-soft-tactile group ${track.categories.join(' ')}`;
+                card.className = `track-card flex-shrink-0 w-[290px] xs:w-[330px] sm:w-[360px] md:w-[380px] snap-start bg-studio-card/90 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-studio-card-border hover:border-studio-gold/60 transition-all duration-300 shadow-soft-tactile group text-left ${track.categories.join(' ')}`;
 
                 card.innerHTML = `
                     <div class="flex items-center justify-between mb-4 gap-2">
@@ -941,17 +956,17 @@
                         </span>
                     </div>
 
-                    <h3 class="font-serif-title text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors truncate" title="${displayTitle}">
+                    <h3 class="font-serif-title text-xl sm:text-2xl font-bold text-studio-text group-hover:text-studio-gold transition-colors truncate" title="${displayTitle}">
                         ${displayTitle}
                     </h3>
-                    <p class="text-xs text-studio-muted mt-1 mb-6 line-clamp-2 h-8 leading-relaxed">${track.desc}</p>
+                    <p class="text-xs text-studio-muted mt-1 mb-5 sm:mb-6 line-clamp-2 h-8 leading-relaxed">${track.desc}</p>
 
-                    <div class="bg-studio-surface/70 rounded-xl p-4 border border-studio-card-border space-y-3">
+                    <div class="bg-studio-surface/70 rounded-xl p-3.5 sm:p-4 border border-studio-card-border space-y-3">
                         <div class="flex items-center justify-between">
                             <button onclick="toggleTrackPlayback(${index})" id="play-btn-${index}" class="w-10 h-10 rounded-xl ${styleInfo.btnBg} text-white flex items-center justify-center hover:opacity-90 transition-all shadow-arcade-button">
                                 <i class="fa-solid fa-play text-xs" id="play-icon-${index}"></i>
                             </button>
-                            <div class="flex-1 mx-4">
+                            <div class="flex-1 mx-3 sm:mx-4">
                                 <div class="h-2 bg-studio-card border border-studio-card-border rounded-full overflow-hidden cursor-pointer relative" onclick="seekTrack(event, ${index})">
                                     <div id="progress-${index}" class="h-full rounded-full transition-all duration-100 w-0" style="background-color: ${styleInfo.accentColor};"></div>
                                 </div>
@@ -959,22 +974,22 @@
                             <span id="time-display-${index}" class="text-xs font-mono font-bold" style="color: ${styleInfo.accentColor};">00:00</span>
                         </div>
 
-                        <div class="flex items-center justify-center space-x-1 h-6 pt-1 opacity-40 transition-opacity" id="wave-bars-${index}">
+                        <div class="flex items-center justify-center space-x-1 h-5 sm:h-6 pt-1 opacity-40 transition-opacity" id="wave-bars-${index}">
                             <span class="w-1 bg-studio-gold h-3 rounded-full"></span>
                             <span class="w-1 bg-studio-gold h-5 rounded-full"></span>
                             <span class="w-1 bg-studio-lavender h-2 rounded-full"></span>
                             <span class="w-1 bg-studio-gold h-6 rounded-full"></span>
                             <span class="w-1 bg-studio-darkred h-4 rounded-full"></span>
-                            <span class="w-1 bg-studio-peach h-3 rounded-full"></span>
+                            <span class="w-1 bg-studio-sage h-3 rounded-full"></span>
                         </div>
                     </div>
                 `;
 
                 trackContainer.appendChild(card);
 
-                // Safe preloading: If the file is missing, gracefully display --:--
+                // Safe preloading
                 const preloadAudio = new Audio();
-                preloadAudio.disableRemotePlayback = true; // Prevents scanning during preload
+                preloadAudio.disableRemotePlayback = true;
                 preloadAudio.src = track.file;
                 preloadAudio.addEventListener('loadedmetadata', () => {
                     const durLabel = document.getElementById(`duration-${index}`);
@@ -993,12 +1008,10 @@
             const visibleCards = trackContainer.querySelectorAll('.track-card:not(.hidden)');
             if (!visibleCards.length) return;
 
-            // Get exact width of one card + gap (24px)
             const cardWidth = visibleCards[0].offsetWidth;
             const gap = parseFloat(getComputedStyle(trackContainer).gap) || 24;
             const cardStride = cardWidth + gap;
 
-            // Move by 3 cards on desktop (width > 900px), 2 on tablet, 1 on phone
             const countToMove = trackContainer.clientWidth > 900 ? 3 : (trackContainer.clientWidth > 640 ? 2 : 1);
             const scrollDistance = cardStride * countToMove;
 
@@ -1034,8 +1047,7 @@
                 
                 globalPlayer.play().then(() => {
                     setPlayingUI(index, true);
-                }).catch((err) => {
-                    // Safe fallback: Missing file won't break anything
+                }).catch(() => {
                     showStudioToast("Audio track unavailable (" + track.file + ")");
                     setPlayingUI(index, false);
                 });
@@ -1094,14 +1106,18 @@
             }
         }
 
-        function filterGenre(genre) {
+        function filterGenre(genre, e) {
             const buttons = document.querySelectorAll('.genre-btn');
             buttons.forEach(btn => {
                 btn.classList.remove('bg-studio-gold', 'text-white', 'shadow-arcade-button');
                 btn.classList.add('bg-studio-card', 'text-studio-muted');
             });
-            event.currentTarget.classList.add('bg-studio-gold', 'text-white', 'shadow-arcade-button');
-            event.currentTarget.classList.remove('bg-studio-card', 'text-studio-muted');
+            
+            const targetBtn = e ? e.currentTarget : (event ? event.currentTarget : null);
+            if (targetBtn) {
+                targetBtn.classList.add('bg-studio-gold', 'text-white', 'shadow-arcade-button');
+                targetBtn.classList.remove('bg-studio-card', 'text-studio-muted');
+            }
 
             const cards = document.querySelectorAll('.track-card');
             cards.forEach(card => {
